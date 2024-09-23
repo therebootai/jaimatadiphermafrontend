@@ -11,7 +11,7 @@ const DashboardComponent = ({ addproduct }) => {
     const fetchTotalProducts = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:8800/api/products/get"
+          `${import.meta.env.VITE_BASE_URL}/api/products/get`
         );
         setTotalProducts(response.data.totalDocuments);
       } catch (error) {
@@ -22,7 +22,7 @@ const DashboardComponent = ({ addproduct }) => {
     const fetchTotalCategories = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:8800/api/categories/get"
+          `${import.meta.env.VITE_BASE_URL}/api/categories/get`
         );
         if (Array.isArray(response.data)) {
           setTotalCategories(response.data.length);
