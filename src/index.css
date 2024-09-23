@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.boxsh {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 4px;
+}
+.box-shadow {
+  box-shadow: 8px 8px #2e3192;
+}
+.boxshinside {
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.15) inset;
+}
