@@ -3,9 +3,24 @@ import React, { useEffect, useState } from "react";
 import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 import Slider from "react-slick";
+import PopupEnquiryBox from "./PopupEnquiryBox";
 
 const HomeProductSection = () => {
   const [products, setProducts] = useState([]);
+
+  const [selectedProduct, setSelectedProduct] = useState(null); // Track selected product for enquiry
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
+
+  // Handle "Order Now" click
+  const handleOrderNowClick = (product) => {
+    setSelectedProduct(product); // Set the selected product
+    setIsPopupVisible(true); // Show the popup
+  };
+
+  // Close the popup
+  const closePopup = () => {
+    setIsPopupVisible(false); // Hide the popup
+  };
 
   // Helper function to shuffle the products array
   const shuffleArray = (array) => {
@@ -143,10 +158,16 @@ const HomeProductSection = () => {
                 </div>
               </div>
               <div className="flex flex-row items-center gap-4">
-                <button className="h-[2.5rem] w-[50%] flex rounded-lg justify-center items-center bg-gradient-to-r from-[#0047AD] to-[#001D47] sm:text-base xlg:text-lg font-semibold text-white">
+                <button
+                  onClick={() => handleOrderNowClick(item)}
+                  className="h-[2.5rem] w-[50%] flex rounded-lg justify-center items-center bg-gradient-to-r from-[#0047AD] to-[#001D47] sm:text-base xlg:text-lg font-semibold text-white"
+                >
                   Order Now
                 </button>
-                <button className="h-[2.5rem] w-[50%] rounded-lg flex justify-center items-center bg-gradient-to-r from-[#2AAA8A] to-[#114437] sm:text-base xlg:text-lg lg:text-base font-semibold text-white">
+                <button
+                  onClick={() => handleOrderNowClick(item)}
+                  className="h-[2.5rem] w-[50%] rounded-lg flex justify-center items-center bg-gradient-to-r from-[#2AAA8A] to-[#114437] sm:text-base xlg:text-lg lg:text-base font-semibold text-white"
+                >
                   Enquiry Now
                 </button>
               </div>
@@ -154,6 +175,16 @@ const HomeProductSection = () => {
           ))}
         </Slider>
       </div>
+      {isPopupVisible && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center h-screen z-50">
+          <div className="lg:w-[50%] sm:w-[95%] md:w-[80%]">
+            <PopupEnquiryBox
+              product={selectedProduct}
+              closePopup={closePopup}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
