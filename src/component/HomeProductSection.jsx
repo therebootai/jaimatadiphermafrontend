@@ -155,11 +155,13 @@ const HomeProductSection = () => {
                   <img
                     src={`${import.meta.env.VITE_BASE_URL}${item.productImage}`}
                     alt={item.brandName}
-                    className="boxshinside rounded-lg"
+                    className="boxshinside rounded-lg w-full h-[18rem]"
                   />
                 </span>
-                <div className="flex flex-col justify-center text-sm font-medium text-[#666666] items-center gap-1">
-                  <div className="text-lg font-semibold">{item.brandName}</div>
+                <div className="flex flex-col justify-center text-center sm:text-xs lg:text-xs font-medium text-[#666666] items-center gap-1">
+                  <div className="text-sm font-semibold h-[2.5rem]">
+                    {item.brandName}
+                  </div>
                   <div>{item.moleculeName}</div>
                   <div>Strength: {item.strengthName}</div>
                   <div>Packing: {item.packagingsizeName}</div>
@@ -169,13 +171,13 @@ const HomeProductSection = () => {
               <div className="flex flex-row items-center gap-4">
                 <button
                   onClick={() => handleOrderNowClick(item)}
-                  className="h-[2.5rem] w-[50%] flex rounded-lg justify-center items-center bg-gradient-to-r from-[#0047AD] to-[#001D47] sm:text-base xlg:text-lg font-semibold text-white"
+                  className="h-[2.5rem] w-[50%] flex rounded-lg justify-center items-center bg-gradient-to-r from-[#0047AD] to-[#001D47] sm:text-base xlg:text-base font-semibold text-white"
                 >
                   Order Now
                 </button>
                 <button
                   onClick={() => handleOrderNowClick(item)}
-                  className="h-[2.5rem] w-[50%] rounded-lg flex justify-center items-center bg-gradient-to-r from-[#2AAA8A] to-[#114437] sm:text-base xlg:text-lg lg:text-base font-semibold text-white"
+                  className="h-[2.5rem] w-[50%] rounded-lg flex justify-center items-center bg-gradient-to-r from-[#2AAA8A] to-[#114437] sm:text-base xlg:text-base lg:text-base font-semibold text-white"
                 >
                   Enquiry Now
                 </button>

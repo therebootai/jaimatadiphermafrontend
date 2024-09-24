@@ -186,11 +186,11 @@ const OurProducts = () => {
                         item.productImage
                       }`}
                       alt={item.brandName}
-                      className="boxshinside rounded-lg "
+                      className="boxshinside rounded-lg w-full h-[18rem] "
                     />
                   </span>
-                  <div className="flex flex-col sm:h-[8rem] md:h-fit justify-center sm:text-xs lg:text-sm font-medium text-[#666666] items-center gap-1">
-                    <div className="text-lg font-semibold">
+                  <div className="flex flex-col sm:h-[8rem] text-center md:h-fit justify-center sm:text-xs lg:text-xs font-medium text-[#666666] items-center gap-1">
+                    <div className="text-sm font-semibold h-[2.5rem]">
                       {item.brandName}
                     </div>
                     <div>{item.moleculeName}</div>
