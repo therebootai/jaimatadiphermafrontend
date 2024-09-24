@@ -44,6 +44,15 @@ const HomeProductSection = () => {
   };
 
   useEffect(() => {
+    if (isPopupVisible) {
+      const firstInput = document.querySelector("#popup-input"); // Assuming you have an input with this ID
+      if (firstInput) {
+        firstInput.focus();
+      }
+    }
+  }, [isPopupVisible]);
+
+  useEffect(() => {
     getProducts();
   }, []);
 
@@ -177,7 +186,7 @@ const HomeProductSection = () => {
       </div>
       {isPopupVisible && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center h-screen z-50">
-          <div className="lg:w-[50%] sm:w-[95%] md:w-[80%]">
+          <div className="lg:w-[50%] sm:w-[95%] md:w-[80%]" inert>
             <PopupEnquiryBox
               product={selectedProduct}
               closePopup={closePopup}

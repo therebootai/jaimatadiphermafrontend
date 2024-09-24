@@ -3,7 +3,7 @@ import MainPageTemplate from "../template/MainPageTemplate";
 import SubBanner from "../component/SubBanner";
 import axios from "axios";
 import SearchComponent from "../component/SearchComponent";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import PopupEnquiryBox from "../component/PopupEnquiryBox";
 
 const OurProducts = () => {
@@ -14,22 +14,20 @@ const OurProducts = () => {
   const [totalPages, setTotalPages] = useState(1);
   const [limit] = useState(20);
   const location = useLocation();
+  const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedProduct, setSelectedProduct] = useState(null); // Track selected product for enquiry
+  const [selectedProduct, setSelectedProduct] = useState(null);
   const [isPopupVisible, setIsPopupVisible] = useState(false);
 
-  // Handle "Order Now" click
   const handleOrderNowClick = (product) => {
-    setSelectedProduct(product); // Set the selected product
-    setIsPopupVisible(true); // Show the popup
+    setSelectedProduct(product);
+    setIsPopupVisible(true);
   };
 
-  // Close the popup
   const closePopup = () => {
-    setIsPopupVisible(false); // Hide the popup
+    setIsPopupVisible(false);
   };
 
-  // Fetch categories from API
   const getCategories = async () => {
     try {
       const response = await axios.get(
@@ -61,13 +59,17 @@ const OurProducts = () => {
       console.error("Error fetching products", error);
     }
   };
+
   useEffect(() => {
-    if (searchQuery) {
-      getProducts(selectedCategory, currentPage, searchQuery);
+    const queryParams = new URLSearchParams(location.search);
+    const searchQueryFromUrl = queryParams.get("search");
+    if (searchQueryFromUrl) {
+      setSearchQuery(searchQueryFromUrl);
+      getProducts(selectedCategory, currentPage, searchQueryFromUrl);
     } else {
       getProducts(selectedCategory, currentPage, "");
     }
-  }, [searchQuery, selectedCategory, currentPage]);
+  }, [location.search, selectedCategory, currentPage]);
 
   useEffect(() => {
     getCategories();
@@ -76,20 +78,11 @@ const OurProducts = () => {
   const handleCategoryClick = (categoryName) => {
     setSelectedCategory((prevCategory) => {
       const newCategory = prevCategory === categoryName ? "" : categoryName;
-      setSearchQuery(""); // Clear the search query when a new category is selected
-      window.history.pushState({}, "", "/ourproducts"); // Remove search query from URL
-
-      getProducts(
-        newCategory,
-        1,
-        "" // Pass an empty string for search when a category is clicked
-      );
-
-      setCurrentPage(1); // Reset to first page when changing category
+      getProducts(newCategory, 1, searchQuery);
+      setCurrentPage(1);
       return newCategory;
     });
   };
-
   const handlePageChange = (page) => {
     if (page >= 1 && page <= totalPages) {
       setCurrentPage(page);
@@ -98,14 +91,13 @@ const OurProducts = () => {
 
   const renderPagination = () => {
     const buttons = [];
-    const maxVisiblePages = 5; // Maximum number of pages to display at a time
+    const maxVisiblePages = 5;
     const startPage = Math.max(
       1,
       currentPage - Math.floor(maxVisiblePages / 2)
-    ); // Calculate the start page
-    const endPage = Math.min(totalPages, startPage + maxVisiblePages - 1); // Calculate the end page
+    );
+    const endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
 
-    // Adjust startPage if we're near the end to always show 5 pages
     const adjustedStartPage = Math.max(
       1,
       Math.min(startPage, totalPages - maxVisiblePages + 1)
@@ -154,11 +146,8 @@ const OurProducts = () => {
     <MainPageTemplate>
       <SubBanner heading={"Our Products"} bannerimg={"/images/subbanner.png"} />
       <SearchComponent
-        getProducts={getProducts}
-        searchQuery={searchQuery}
-        setSearchQuery={setSearchQuery}
-        selectedCategory={selectedCategory}
-        currentPage={currentPage}
+        initialQuery={searchQuery}
+        setSearchQueryProp={setSearchQuery}
       />
 
       <div className="xl:p-16 lg:p-8 sm:p-4 flex flex-col gap-8">

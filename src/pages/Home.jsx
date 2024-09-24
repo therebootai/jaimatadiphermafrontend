@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import MainPageTemplate from "../template/MainPageTemplate";
 import MainBanner from "../component/MainBanner";
 import SearchComponent from "../component/SearchComponent";

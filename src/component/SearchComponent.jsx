@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
-const SearchComponent = ({
-  getProducts,
-  searchQuery,
-  setSearchQuery,
-  selectedCategory,
-  currentPage,
-}) => {
+const SearchComponent = ({ initialQuery, setSearchQueryProp }) => {
   const [suggestions, setSuggestions] = useState([]);
-  const location = useLocation();
+  const [searchQuery, setSearchQuery] = useState(initialQuery || "");
+
+  useEffect(() => {
+    // Update the search query when the initialQuery changes (from URL or other sources)
+    setSearchQuery(initialQuery || "");
+  }, [initialQuery]);
 
   const fetchSuggestions = async (query) => {
     try {
@@ -31,40 +30,31 @@ const SearchComponent = ({
     setSearchQuery(query);
 
     if (query.length > 0) {
-      // Fetch suggestions even for single letter queries like "P"
       fetchSuggestions(query);
     } else {
       setSuggestions([]);
-      setSearchQuery("");
-      window.history.pushState({}, "", "/ourproducts");
-      getProducts(selectedCategory, currentPage, ""); // Fetch all products if query is cleared
+      setSearchQueryProp(""); // Notify parent component to reset search
+      window.location.href = "/ourproducts"; // Clear the search query from the URL
     }
   };
 
-  useEffect(() => {
-    if (selectedCategory) {
-      setSearchQuery("");
-      window.history.pushState({}, "", "/ourproducts");
-    }
-  }, [selectedCategory]);
-
-  useEffect(() => {
-    const queryParams = new URLSearchParams(location.search);
-    const searchQueryFromUrl = queryParams.get("search");
-    if (searchQueryFromUrl) {
-      setSearchQuery(searchQueryFromUrl);
-    }
-  }, [location.search]);
-
   const matchQuery = (suggestion) => {
-    // Check if the search query matches the molecule name or brand name
     const lowerCaseQuery = searchQuery.toLowerCase();
     if (suggestion.moleculeName.toLowerCase().includes(lowerCaseQuery)) {
-      return suggestion.moleculeName; // Show molecule name if it matches the query
+      return suggestion.moleculeName;
     } else if (suggestion.brandName.toLowerCase().includes(lowerCaseQuery)) {
-      return suggestion.brandName; // Show brand name if it matches the query
+      return suggestion.brandName;
     }
     return null;
+  };
+
+  const handleSearchSubmit = () => {
+    if (searchQuery.length > 0) {
+      setSearchQueryProp(searchQuery);
+    } else {
+      setSearchQueryProp("");
+      window.location.href = "/ourproducts";
+    }
   };
 
   return (
@@ -87,32 +77,29 @@ const SearchComponent = ({
 
                 {suggestions.length > 0 && (
                   <ul className="absolute z-10 w-full bg-white border border-gray-300 rounded-lg shadow-md mt-2">
-                    {suggestions.length > 0 && (
-                      <ul className="absolute z-10 w-full bg-white border border-gray-300 rounded-lg shadow-md mt-2">
-                        {suggestions.map((suggestion, index) => {
-                          const matchedText = matchQuery(suggestion);
-                          return (
-                            matchedText && (
-                              <li key={index}>
-                                <Link
-                                  to={`/ourproducts?search=${matchedText}`}
-                                  className="block p-2 cursor-pointer hover:bg-gray-100"
-                                  onClick={() => setSearchQuery(matchedText)}
-                                >
-                                  {matchedText}
-                                </Link>
-                              </li>
-                            )
-                          );
-                        })}
-                      </ul>
-                    )}
+                    {suggestions.map((suggestion, index) => {
+                      const matchedText = matchQuery(suggestion);
+                      return (
+                        matchedText && (
+                          <li key={index}>
+                            <Link
+                              to={`/ourproducts?search=${matchedText}`}
+                              className="block p-2 cursor-pointer hover:bg-gray-100"
+                              onClick={() => setSearchQuery(matchedText)}
+                            >
+                              {matchedText}
+                            </Link>
+                          </li>
+                        )
+                      );
+                    })}
                   </ul>
                 )}
               </div>
 
               <Link
                 to={`/ourproducts?search=${searchQuery}`}
+                onClick={handleSearchSubmit}
                 className="h-[4rem] sm:w-[50%] md:w-[20%] bg-gradient-to-r from-[#E5FFF8] to-[#BBFFEE] text-[#2AAA8A] text-lg font-semibold rounded-lg hover:bg-indigo-700 transition duration-300 flex justify-center items-center"
               >
                 Find Medicine
