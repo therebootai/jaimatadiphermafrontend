@@ -10,6 +10,7 @@ import DashboardComponent from "./DashboardComponent";
 import AddNewProduct from "./AddNewProduct";
 import EditProduct from "./EditProduct";
 import ViewProduct from "./ViewProduct";
+import LoadingAnimation from "../LoadingAnimation";
 
 const ManageProducts = ({ showthissection }) => {
   const [showAddProduct, setShowAddProduct] = useState(false);
@@ -27,6 +28,7 @@ const ManageProducts = ({ showthissection }) => {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const [noDataMessage, setNoDataMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const getCategories = async () => {
     try {
@@ -87,6 +89,7 @@ const ManageProducts = ({ showthissection }) => {
   };
 
   const getProducts = async (page = 1) => {
+    setLoading(true);
     try {
       const response = await axios.get(
         `${import.meta.env.VITE_BASE_URL}/api/products/get`,
@@ -100,11 +103,10 @@ const ManageProducts = ({ showthissection }) => {
         }
       );
 
-      const fetchedProducts = response.data.data; // Fetch the products from the API
-      setProducts(fetchedProducts); // Set the products to state
-      setTotalPages(response.data.totalPages); // Set total pages for pagination
+      const fetchedProducts = response.data.data;
+      setProducts(fetchedProducts);
+      setTotalPages(response.data.totalPages);
 
-      // Check if no products are found and set the appropriate message
       if (fetchedProducts.length === 0) {
         if (selectedCategory) {
           setNoDataMessage("This category is not created");
@@ -116,13 +118,15 @@ const ManageProducts = ({ showthissection }) => {
           setNoDataMessage("No products found");
         }
       } else {
-        setNoDataMessage(""); // Reset the message if data is available
+        setNoDataMessage("");
       }
 
-      setCurrentPage(1); // Reset page to 1 after applying a filter
+      setCurrentPage(1);
     } catch (error) {
       console.error("Error fetching products", error);
       setNoDataMessage("Error fetching products");
+    } finally {
+      setLoading(false); // Stop loading animation
     }
   };
 
@@ -289,77 +293,83 @@ const ManageProducts = ({ showthissection }) => {
         )}
 
         <div className="w-full">
-          <div className="flex flex-col">
-            {noDataMessage ? (
-              <div className="text-center py-4 text-red-500">
-                {noDataMessage}
-              </div>
-            ) : (
-              <>
-                <div className="flex flex-row px-2 py-4 gap-4 font-medium sm:text-sm xlg:text-base bg-[#2AAA8A] text-white w-full border-b">
-                  {headers.map((header, index) => (
-                    <div className="flex-1" key={index}>
-                      {header}
-                    </div>
-                  ))}
+          {loading ? (
+            <LoadingAnimation />
+          ) : (
+            <div className="flex flex-col">
+              {noDataMessage ? (
+                <div className="text-center py-4 text-red-500">
+                  {noDataMessage}
                 </div>
-                <div>
-                  {products.map((product) => (
-                    <div
-                      key={product.productId}
-                      className="flex flex-row px-2 py-4 gap-4 w-full border-b"
-                    >
-                      <div className="flex-1">{product.brandName}</div>
-                      <div className="flex-1">{product.categoryName}</div>
-                      <div className="flex-1">{product.moleculeName}</div>
-                      <div className="flex-1">{product.strengthName}</div>
-                      <div className="flex-1">{product.packagingsizeName}</div>
-
-                      <div className="flex-1">
-                        <label className="switch">
-                          <input
-                            type="checkbox"
-                            checked={product.active}
-                            onChange={() =>
-                              handleToggleActive(
-                                product.productId,
-                                product.active
-                              )
-                            }
-                          />
-                          <span className="slider"></span>
-                        </label>
+              ) : (
+                <>
+                  <div className="flex flex-row px-2 py-4 gap-4 font-medium sm:text-sm xlg:text-base bg-[#2AAA8A] text-white w-full border-b">
+                    {headers.map((header, index) => (
+                      <div className="flex-1" key={index}>
+                        {header}
                       </div>
+                    ))}
+                  </div>
+                  <div>
+                    {products.map((product) => (
+                      <div
+                        key={product.productId}
+                        className="flex flex-row px-2 py-4 gap-4 w-full border-b"
+                      >
+                        <div className="flex-1">{product.brandName}</div>
+                        <div className="flex-1">{product.categoryName}</div>
+                        <div className="flex-1">{product.moleculeName}</div>
+                        <div className="flex-1">{product.strengthName}</div>
+                        <div className="flex-1">
+                          {product.packagingsizeName}
+                        </div>
 
-                      <div className="flex-1 flex gap-4 text-xl items-center">
-                        <button
-                          className="text-[#7F03FA]"
-                          onClick={() => handleViewClick(product.productId)}
-                        >
-                          <MdVisibility />
-                        </button>
-                        <button
-                          className="text-[#00B252]"
-                          onClick={() => handleEditClick(product.productId)}
-                        >
-                          <TbEdit />
-                        </button>
-                        <button
-                          className="text-[#E40000]"
-                          onClick={() => {
-                            setProductToDelete(product.productId);
-                            setShowDeleteModal(true);
-                          }}
-                        >
-                          <RiDeleteBin6Line />
-                        </button>
+                        <div className="flex-1">
+                          <label className="switch">
+                            <input
+                              type="checkbox"
+                              checked={product.active}
+                              onChange={() =>
+                                handleToggleActive(
+                                  product.productId,
+                                  product.active
+                                )
+                              }
+                            />
+                            <span className="slider"></span>
+                          </label>
+                        </div>
+
+                        <div className="flex-1 flex gap-4 text-xl items-center">
+                          <button
+                            className="text-[#7F03FA]"
+                            onClick={() => handleViewClick(product.productId)}
+                          >
+                            <MdVisibility />
+                          </button>
+                          <button
+                            className="text-[#00B252]"
+                            onClick={() => handleEditClick(product.productId)}
+                          >
+                            <TbEdit />
+                          </button>
+                          <button
+                            className="text-[#E40000]"
+                            onClick={() => {
+                              setProductToDelete(product.productId);
+                              setShowDeleteModal(true);
+                            }}
+                          >
+                            <RiDeleteBin6Line />
+                          </button>
+                        </div>
                       </div>
-                    </div>
-                  ))}
-                </div>
-              </>
-            )}
-          </div>
+                    ))}
+                  </div>
+                </>
+              )}
+            </div>
+          )}
         </div>
 
         <div className="flex justify-between items-center mt-4">

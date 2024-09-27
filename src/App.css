@@ -134,7 +134,7 @@ input:checked + .slider:before {
 .bars {
   width: 100%;
   height: 4px;
-  background: #8eff00;
+  background: #0047ad;
 
   border-radius: 4px;
   transition: transform 0.5s ease-in-out, width 0.5s ease-in-out;

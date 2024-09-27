@@ -13,6 +13,8 @@ const Header = () => {
     { name: "About Us", link: "/aboutus" },
     { name: "Our Products", link: "/ourproducts" },
     { name: "Our Vision", link: "/ourvission" },
+    { name: "Our Gallery", link: "" },
+
     { name: "Contact Us", link: "/contactus" },
   ];
 
@@ -59,7 +61,7 @@ const Header = () => {
         scrolled ? "top-0 header-transition" : ""
       }`}
     >
-      <div className="lg:flex sm:hidden w-full h-[6rem] shadow-lg justify-between items-center  px-5">
+      <div className="lg:flex sm:hidden w-full lg:h-[5rem] xlg:h-[6rem] shadow-lg justify-between items-center  px-5">
         <Link to="/" className="sm:hidden md:block">
           <img
             src="/images/jaimatadilogo.png"
@@ -71,9 +73,9 @@ const Header = () => {
           {NavElement.map((navbar, index) => (
             <div
               key={index}
-              className={`font-medium lg:px-4 xlg:px-6 xl:px-8 h-[6rem] flex justify-center items-center hover:bg-gradient-to-b from-[#FFFFFF] to-[#EDF2F8] ${
+              className={`font-medium lg:px-4 xlg:px-6 xl:px-8 lg:h-[5rem] xlg:h-[6rem] flex justify-center items-center hover:bg-gradient-to-b from-[#FFFFFF] to-[#EDF2F8] ${
                 location.pathname === navbar.link
-                  ? "text-[#2AAA8A] bg-gradient-to-b from-[#ffffff] to-[#d9dee2] border-b-4 border-[#2AAA8A]"
+                  ? "text-[#0047AD] bg-gradient-to-b from-[#ffffff] to-[#d9dee2] border-b-4 border-[#0047AD]"
                   : "text-[#333333]"
               }`}
             >
@@ -87,7 +89,7 @@ const Header = () => {
           ))}
         </div>
       </div>
-      <div className="sm:flex md:justify-between md:items-center sm:justify-between sm:items-center w-full md:p-6 sm:p-2 sm:px-3 px-0 lg:hidden">
+      <div className="sm:flex md:justify-between md:items-center sm:justify-between sm:items-center w-full md:p-6 sm:p-3 sm:px-3 px-0 lg:hidden">
         <Link to="/" className="lg:hidden">
           <img
             src="/images/jaimatadilogo.png"

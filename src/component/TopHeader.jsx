@@ -24,8 +24,8 @@ const TopHeader = () => {
 
   return (
     <div className=" z-[60] w-full">
-      <div className=" flex md:flex-row sm:flex-col  justify-between sm:gap-2 md:gap-0 items-center  text-white">
-        <div className="flex gap-4  md:w-[60%] lg:w-[50%] sm:w-full bg-[#2AAA8A] sm:rounded-br-0  md:rounded-br-[4rem] sm:h-[2rem] md:h-[3rem] justify-center items-center sm:text-xs lg:text-sm xlg:text-base">
+      <div className=" flex md:flex-row sm:flex-col  justify-between sm:gap-2 md:gap-0 items-center bg-[#0047AD]  text-white">
+        <div className="flex gap-4  md:w-[60%] lg:w-[50%] sm:w-full bg-[#0047AD] sm:rounded-br-0  md:rounded-br-[4rem] sm:h-[2rem] md:h-[2.5rem] justify-center items-center sm:text-xs lg:text-sm xlg:text-base">
           <span className="flex md:gap-2 sm:gap-1 items-center sm:text-[10px] lg:text-sm xlg:text-base font-semibold">
             <span>
               <PiPhoneCallFill />
@@ -45,7 +45,7 @@ const TopHeader = () => {
             <Link to={"mailto:contact@jmpharma.com"}>contact@jmpharma.com</Link>
           </span>
         </div>
-        <div className="flex gap-4 sm:hidden md:flex sm:w-full md:w-[40%] lg:w-[50%] bg-white  sm:h-[2rem] md:h-[3rem] justify-end pr-8 items-center sm:text-xs lg:text-sm xlg:text-base">
+        <div className="flex gap-4 sm:hidden md:flex sm:w-full md:w-[40%] lg:w-[50%] bg-[#0047AD]  sm:h-[2rem] md:h-[2.5rem] justify-end pr-8 items-center sm:text-xs lg:text-sm xlg:text-base">
           <span className="flex gap-2 items-center">
             {socialmedia.map((social, index) => (
               <div key={index} className=" ">
