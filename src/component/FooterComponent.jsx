@@ -69,7 +69,8 @@ const FooterComponent = () => {
             </div>
             <div className="flex flex-row gap-2 xl:items-center">
               <FaLocationDot className="text-[#2AAA8A]" />
-              Hill Cart Road, Siliguri, West Bengal - 734001
+              Vivekananda Rd, Ward No.- 8, Khalpara, Siliguri, West Bengal
+              734005
             </div>
             <div className="flex flex-row gap-2 xl:items-center">
               <MdEmail className="text-[#2AAA8A]" />
@@ -77,7 +78,7 @@ const FooterComponent = () => {
             </div>
             <div className="flex flex-row gap-2 xl:items-center">
               <BiSolidPhoneCall className="text-[#2AAA8A]" />
-              +91 12345 67890
+              +91 09434072559
             </div>
             <span className="flex sm:gap-4 lg:gap-2 xl:gap-6 items-center">
               {socialmedia.map((social, index) => (
@@ -141,7 +142,7 @@ const FooterComponent = () => {
         <div className="flex sm:w-full lg:w-[25%] flex-col gap-4">
           <div>
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14720.815820343256!2d88.36891705!3d22.72065945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f89bb35cd6842b%3A0x20bb52604e2c74fb!2sCroma!5e0!3m2!1sen!2sin!4v1726855050364!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14256.380009881912!2d88.4251498!3d26.7094118!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e441693048af99%3A0x1e6947765d6e2a15!2sJai%20Matadi%20Enterprise!5e0!3m2!1sen!2sin!4v1727548193942!5m2!1sen!2sin"
               className="rounded-lg w-full sm:h-[10rem] lg:h-[8rem] xlg:h-[10rem]"
               loading="lazy"
             ></iframe>

@@ -29,19 +29,28 @@ const OurGallery = () => {
     }
   };
 
-  const gallery = ["/images/about2.png", "/images/about3.png"];
+  const gallery = [
+    "/images/about2.png",
+    "/images/about3.png",
+    "/images/about2.png",
+    "/images/about3.png",
+    "/images/about2.png",
+    "/images/about3.png",
+    "/images/about2.png",
+    "/images/about3.png",
+  ];
   return (
     <MainPageTemplate>
       <SubBanner heading={"Our Gallery"} bannerimg={"/images/subbanner.png"} />
       <div className="xl:p-16 sm:p-8 lg:p-8">
         <div className="grid md:grid-cols-3 sm:grid-cols-2 xlg:grid-cols-4 sm:gap-4 lg:gap-6">
           {gallery.map((item, index) => (
-            <div key={index} className="p-2 bg-[#2AAA8A] rounded-lg">
+            <div key={index} className=" rounded-md">
               <img
                 src={item}
                 onClick={() => openModal(index)}
                 alt=""
-                className="rounded-lg border-2 border-white cursor-pointer"
+                className="rounded-md  cursor-pointer"
               />
             </div>
           ))}
@@ -54,7 +63,7 @@ const OurGallery = () => {
                   <img
                     src={gallery[selectedImageIndex]}
                     alt=""
-                    className="xlg:h-[40rem] lg:h-[30rem] md:h-[30rem] sm:h-[20rem]"
+                    className="xlg:h-[40rem] lg:h-[30rem]  md:h-[30rem] sm:h-[20rem]"
                   />
                 </span>
               </div>

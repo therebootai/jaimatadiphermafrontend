@@ -2,7 +2,7 @@ import React from "react";
 
 const EnquiryBoxComponent = () => {
   return (
-    <div className="relative flex flex-col gap-4 xl:p-12 lg:p-8 sm:p-4  w-full opacity-100 rounded-lg bg-[#0047AD] justify-center items-center">
+    <div className="relative flex flex-col gap-4 xl:p-10 lg:p-8 sm:p-4  w-full opacity-100 rounded-lg bg-[#0047AD] justify-center items-center">
       <div
         className="absolute inset-0 bg-cover bg-center opacity-30 rounded-lg"
         style={{ backgroundImage: `url(/images/enquirybg.png)` }}

@@ -66,7 +66,7 @@ const ImportantBgComponent = () => {
                 <div className="w-[80%] flex flex-col gap-4 items-center justify-center">
                   <img src={item.img} alt="" className="h-[5rem]" />
 
-                  <h1 className="xl:text-3xl sm:text-2xl text-center font-semibold text-white">
+                  <h1 className="xl:text-3xl xlg:text-2xl sm:text-2xl text-center font-semibold text-white">
                     {item.text}
                   </h1>
                 </div>

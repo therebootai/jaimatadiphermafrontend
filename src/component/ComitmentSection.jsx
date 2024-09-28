@@ -4,11 +4,11 @@ import EnquiryBoxComponent from "./EnquiryBoxComponent";
 const ComitmentSection = () => {
   return (
     <div className="xl:p-16 lg:p-8 sm:p-4 ">
-      <div className="grid sm:grid-cols-1 md:grid-cols-2  gap-6">
-        <div className="">
+      <div className="sm:grid sm:grid-cols-1 md:flex md:flex-row   gap-6">
+        <div className="lg:w-[40%] md:w-[45%]">
           <EnquiryBoxComponent />
         </div>
-        <div className="flex flex-col lg:gap-6 sm:gap-6 xl:gap-10 ">
+        <div className="flex flex-col lg:gap-4 sm:gap-6 xl:gap-4 lg:w-[60%] md:w-[55%] ">
           <h1 className="xl:text-4xl lg:text-3xl sm:text-2xl md:text-3xl font-semibold text-[#0047AD]">
             Our Commitment To Our Society
           </h1>

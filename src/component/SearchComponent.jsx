@@ -18,11 +18,11 @@ const SearchComponent = ({ initialQuery, setSearchQueryProp }) => {
       const response = await axios.get(
         `${import.meta.env.VITE_BASE_URL}/api/products/random-suggestions`,
         {
-          params: { limit: 30 }, // Fetch 30 random suggestions
+          params: { limit: 30 },
         }
       );
       setRandomSuggestions(response.data);
-      setSuggestions(response.data); // Set the initial suggestions to random ones
+      setSuggestions(response.data);
     } catch (error) {
       console.error("Error fetching random suggestions", error);
     }
