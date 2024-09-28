@@ -85,7 +85,10 @@ const SearchComponent = ({ initialQuery, setSearchQueryProp }) => {
                             <Link
                               to={`/ourproducts?search=${matchedText}`}
                               className="block p-2 cursor-pointer hover:bg-gray-100"
-                              onClick={() => setSearchQuery(matchedText)}
+                              onClick={() => {
+                                setSearchQuery(matchedText);
+                                setSuggestions([]);
+                              }}
                             >
                               {matchedText}
                             </Link>

@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 const preloadImages = (imageUrls) => {
   imageUrls.forEach((url) => {
@@ -7,6 +8,8 @@ const preloadImages = (imageUrls) => {
   });
 };
 const MainBanner = () => {
+  const [sliders, setSliders] = useState([]);
+
   const settings = {
     infinite: true,
     speed: 2000,
@@ -19,18 +22,33 @@ const MainBanner = () => {
     arrows: false,
   };
 
-  const banners = [{ imgsrc: "/images/slider1.png" }];
   useEffect(() => {
-    const imageUrls = banners.map((banner) => banner.imgsrc);
+    const imageUrls = sliders.map((sliders) => sliders.imgsrc);
     preloadImages(imageUrls);
-  }, [banners]);
+  }, [sliders]);
+
+  const fetchSliders = async () => {
+    try {
+      const response = await axios.get(
+        `${import.meta.env.VITE_BASE_URL}/api/sliders/get?active=true`
+      );
+      setSliders(response.data);
+    } catch (error) {
+      console.error("Error fetching sliders:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchSliders();
+  }, []);
+
   return (
     <div className="w-full ">
       <Slider {...settings}>
-        {banners.map((banner, index) => (
+        {sliders.map((slider, index) => (
           <div key={index} className="">
             <img
-              src={banner.imgsrc}
+              src={`${import.meta.env.VITE_BASE_URL}${slider.sliderImage}`}
               loading="lazy"
               alt="slider"
               className="h-auto w-full object-cover z-[-10]"

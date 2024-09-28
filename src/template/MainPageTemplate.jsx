@@ -17,7 +17,7 @@ const MainPageTemplate = ({ children }) => {
           <Header />
         </div>
 
-        <div className=" sm:mt-[3rem] md:mt-[5.5rem] lg:mt-[5.6rem]">
+        <div className=" sm:mt-[3.5rem] md:mt-[5.5rem] lg:mt-[5rem] xlg:mt-[5.9rem]">
           {children}
         </div>
         <FooterComponent />

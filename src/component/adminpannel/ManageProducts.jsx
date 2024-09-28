@@ -120,13 +120,11 @@ const ManageProducts = ({ showthissection }) => {
       } else {
         setNoDataMessage("");
       }
-
-      setCurrentPage(1);
     } catch (error) {
       console.error("Error fetching products", error);
       setNoDataMessage("Error fetching products");
     } finally {
-      setLoading(false); // Stop loading animation
+      setLoading(false);
     }
   };
 
@@ -314,13 +312,21 @@ const ManageProducts = ({ showthissection }) => {
                     {products.map((product) => (
                       <div
                         key={product.productId}
-                        className="flex flex-row px-2 py-4 gap-4 w-full border-b"
+                        className="flex flex-row  px-2 py-4 gap-4 w-full border-b"
                       >
-                        <div className="flex-1">{product.brandName}</div>
-                        <div className="flex-1">{product.categoryName}</div>
-                        <div className="flex-1">{product.moleculeName}</div>
-                        <div className="flex-1">{product.strengthName}</div>
-                        <div className="flex-1">
+                        <div className="flex-1 twolinelimit">
+                          {product.brandName}
+                        </div>
+                        <div className="flex-1 twolinelimit">
+                          {product.categoryName}
+                        </div>
+                        <div className="flex-1 twolinelimit">
+                          {product.moleculeName}
+                        </div>
+                        <div className="flex-1 twolinelimit">
+                          {product.strengthName}
+                        </div>
+                        <div className="flex-1 twolinelimit">
                           {product.packagingsizeName}
                         </div>
 
@@ -373,7 +379,7 @@ const ManageProducts = ({ showthissection }) => {
         </div>
 
         <div className="flex justify-between items-center mt-4">
-          <div>
+          <div className="flex flex-row gap-4 items-center">
             <label htmlFor="pageJump">Jump to page: </label>
             <select
               id="pageJump"
@@ -387,6 +393,13 @@ const ManageProducts = ({ showthissection }) => {
                 </option>
               ))}
             </select>
+            <button
+              onClick={() => handlePageChange(totalPages)}
+              className="flex flex-row gap-1 hover:text-[#2AAA8A] font-medium items-center"
+            >
+              <h1>Total Pages:</h1>
+              <span className=" cursor-pointer ">{totalPages}</span>
+            </button>
           </div>
 
           <div className="flex justify-center items-center mt-4">

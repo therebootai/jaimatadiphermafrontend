@@ -5,6 +5,7 @@ import axios from "axios";
 import SearchComponent from "../component/SearchComponent";
 import { useLocation, useNavigate } from "react-router-dom";
 import PopupEnquiryBox from "../component/PopupEnquiryBox";
+import HomeLoadingAnimation from "../component/HomeLoadingAnimation";
 
 const OurProducts = () => {
   const [products, setProducts] = useState([]);
@@ -18,6 +19,7 @@ const OurProducts = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isPopupVisible, setIsPopupVisible] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleOrderNowClick = (product) => {
     setSelectedProduct(product);
@@ -41,6 +43,8 @@ const OurProducts = () => {
 
   const getProducts = async (category = "", page = 1, search = "") => {
     try {
+      setLoading(true);
+
       const response = await axios.get(
         `${import.meta.env.VITE_BASE_URL}/api/products/get`,
         {
@@ -57,6 +61,8 @@ const OurProducts = () => {
       setTotalPages(response.data.totalPages);
     } catch (error) {
       console.error("Error fetching products", error);
+    } finally {
+      setLoading(false); // Set loading to false once data is fetched or if an error occurs
     }
   };
 
@@ -74,6 +80,20 @@ const OurProducts = () => {
   useEffect(() => {
     getCategories();
   }, []);
+
+  const formatMoleculeAndStrength = (moleculeName, strengthName) => {
+    // Split both moleculeName and strengthName by "+" to get individual molecules and strengths
+    const molecules = moleculeName.split("+").map((mol) => mol.trim());
+    const strengths = strengthName.split("+").map((str) => str.trim());
+
+    // Combine molecules with their respective strengths
+    return molecules
+      .map((molecule, index) => {
+        const strength = strengths[index] ? `(${strengths[index]})` : ""; // Add strength in parentheses
+        return `${molecule}${strength}`; // Return combined molecule and strength
+      })
+      .join(", "); // Join them with commas
+  };
 
   const handleCategoryClick = (categoryName) => {
     setSelectedCategory((prevCategory) => {
@@ -176,45 +196,57 @@ const OurProducts = () => {
         </div>
 
         <div className="grid md:grid-cols-3 sm:grid-cols-2  xlg:grid-cols-4 sm:gap-2 lg:gap-4">
-          {products.length > 0 ? (
-            products.map((item, index) => (
-              <div key={index} className="flex flex-col gap-4">
-                <div className="flex flex-col sm:gap-1 md:gap-2 sm:p-2 lg:p-4 boxshinside rounded-lg">
-                  <span>
-                    <img
-                      src={`${import.meta.env.VITE_BASE_URL}${
-                        item.productImage
-                      }`}
-                      alt={item.brandName}
-                      className="boxshinside rounded-lg w-full h-[18rem] "
-                    />
-                  </span>
-                  <div className="flex flex-col sm:h-[8rem] text-center md:h-fit justify-center sm:text-xs lg:text-xs font-medium text-[#666666] items-center gap-1">
-                    <div className="text-sm font-semibold h-[2.5rem]">
-                      {item.brandName}
-                    </div>
-                    <div>{item.moleculeName}</div>
-                    <div>Strength: {item.strengthName}</div>
-                    <div>Packing: {item.packagingsizeName}</div>
-                    <div>Price: {item.productPrice}/-</div>
-                  </div>
-                  <div className="flex items-center justify-center gap-4">
-                    <button
-                      onClick={() => handleOrderNowClick(item)}
-                      className="h-[2rem] md:w-[70%] sm:w-full lg:w-[50%] flex rounded-lg justify-center items-center bg-gradient-to-r from-[#2AAA8A] to-[#114437] sm:text-base xlg:text-base font-semibold text-white"
-                    >
-                      Order Now
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))
-          ) : (
-            <div className="col-span-4 text-center text-red-500">
-              {selectedCategory || searchQuery
-                ? "No products found for this category or search."
-                : "No products available."}
+          {loading ? (
+            <div className="">
+              <HomeLoadingAnimation />
             </div>
+          ) : (
+            <>
+              {products.length > 0 ? (
+                products.map((item, index) => (
+                  <div key={index} className="flex flex-col gap-4">
+                    <div className="flex flex-col sm:gap-1 md:gap-2 sm:p-2 lg:p-4 h-full boxshinside rounded-lg">
+                      <span>
+                        <img
+                          src={`${import.meta.env.VITE_BASE_URL}${
+                            item.productImage
+                          }`}
+                          alt={item.brandName}
+                          className="boxshinside rounded-lg w-full lg:h-[16rem] sm:h-[12rem] xl:h-[18rem] "
+                        />
+                      </span>
+                      <div className="flex flex-col sm:h-[8rem] text-center md:h-fit justify-center sm:text-xs lg:text-xs font-medium text-[#666666] items-center gap-1">
+                        <div className="text-sm font-semibold">
+                          {item.brandName}
+                        </div>
+                        <div>
+                          {formatMoleculeAndStrength(
+                            item.moleculeName,
+                            item.strengthName
+                          )}
+                        </div>
+                        <div>Packing: {item.packagingsizeName}</div>
+                        <div>Price: {item.productPrice}/-</div>
+                      </div>
+                      <div className="flex items-end justify-center h-full gap-4">
+                        <button
+                          onClick={() => handleOrderNowClick(item)}
+                          className="h-[2rem] md:w-[70%] sm:w-full lg:w-[50%] flex rounded-lg justify-center items-center bg-gradient-to-r from-[#2AAA8A] to-[#114437] sm:text-base xlg:text-base font-semibold text-white"
+                        >
+                          Order Now
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <div className="col-span-4 text-center text-red-500">
+                  {selectedCategory || searchQuery
+                    ? "No products found for this category or search."
+                    : "No products available."}
+                </div>
+              )}
+            </>
           )}
         </div>
 

@@ -16,13 +16,14 @@ import OurProducts from "./pages/OurProducts";
 import AddAndManageSlider from "./pages/admindashboard/AddAndManageSlider";
 import AddAndManagePopup from "./pages/admindashboard/AddAndManagePopup";
 import AdminLogin from "./pages/admindashboard/AdminLogin";
+import OurGallery from "./pages/OurGallery";
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/ourproducts" element={<OurProducts />} />
-
+        <Route path="/ourgallery" element={<OurGallery />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/ourvission" element={<OurVission />} />
         <Route path="/contactus" element={<ContactUS />} />

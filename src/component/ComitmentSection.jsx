@@ -22,7 +22,7 @@ const ComitmentSection = () => {
             with the release of Letraset sheets containing
           </p>
           <div>
-            <img src="/images/comitmentimg.png" alt="" className="rounded-lg" />
+            <img src="/images/comitmentimg.jpg" alt="" className="rounded-lg" />
           </div>
         </div>
       </div>

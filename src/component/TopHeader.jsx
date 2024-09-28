@@ -10,16 +10,16 @@ import { Link } from "react-router-dom";
 const TopHeader = () => {
   const socialmedia = [
     {
-      name: "/images/facebook.svg",
+      name: "/images/facebookwhite.svg",
       link: "",
     },
-    { name: "/images/instagram.svg", link: "" },
+    { name: "/images/instagramwhite.svg", link: "" },
     {
-      name: "/images/linkedin.svg",
+      name: "/images/linkedinwhite.svg",
       link: "",
     },
-    { name: "/images/twitter.svg", link: "" },
-    { name: "/images/youtube.svg", link: "" },
+    { name: "/images/twitterwhite.svg", link: "" },
+    { name: "/images/youtubewhite.svg", link: "" },
   ];
 
   return (
@@ -50,7 +50,7 @@ const TopHeader = () => {
             {socialmedia.map((social, index) => (
               <div key={index} className=" ">
                 <Link to={social.link}>
-                  <img src={social.name} alt="" className="h-[1.5rem]" />
+                  <img src={social.name} alt="" className="h-[1.3rem]" />
                 </Link>
               </div>
             ))}
