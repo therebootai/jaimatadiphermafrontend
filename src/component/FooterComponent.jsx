@@ -67,17 +67,17 @@ const FooterComponent = () => {
               </h1>
               <div className="xl:w-[8rem] sm:w-[6rem]  h-[1px] bg-[#2AAA8A]"></div>
             </div>
-            <div className="flex flex-row gap-2 xl:items-center">
-              <FaLocationDot className="text-[#2AAA8A]" />
+            <div className="flex flex-row gap-2">
+              <FaLocationDot className="text-[#2AAA8A] mt-1" />
               Vivekananda Rd, Ward No.- 8, Khalpara, Siliguri, West Bengal
               734005
             </div>
-            <div className="flex flex-row gap-2 xl:items-center">
-              <MdEmail className="text-[#2AAA8A]" />
+            <div className="flex flex-row gap-2">
+              <MdEmail className="text-[#2AAA8A] mt-1" />
               contact@yourwebsite.com
             </div>
-            <div className="flex flex-row gap-2 xl:items-center">
-              <BiSolidPhoneCall className="text-[#2AAA8A]" />
+            <div className="flex flex-row gap-2">
+              <BiSolidPhoneCall className="text-[#2AAA8A] mt-1" />
               +91 09434072559
             </div>
             <span className="flex sm:gap-4 lg:gap-2 xl:gap-6 items-center">
