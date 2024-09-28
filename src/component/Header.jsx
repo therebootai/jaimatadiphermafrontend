@@ -110,7 +110,7 @@ const Header = () => {
         </button>
       </div>
       {menuopen && (
-        <div className="sm:flex bg-[#0A3E59] flex-col sm:h-[40vh] md:h-[60vh] md:text-3xl sm:text-xl overflow-scroll lg:hidden px-9 relative">
+        <div className="sm:flex bg-[#0047AD] flex-col sm:h-[40vh] md:h-[60vh] md:text-3xl sm:text-xl overflow-scroll lg:hidden px-9 relative">
           {NavElement.map((navbar, index) => (
             <div
               key={index}

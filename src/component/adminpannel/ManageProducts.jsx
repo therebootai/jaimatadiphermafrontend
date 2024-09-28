@@ -11,6 +11,7 @@ import AddNewProduct from "./AddNewProduct";
 import EditProduct from "./EditProduct";
 import ViewProduct from "./ViewProduct";
 import LoadingAnimation from "../LoadingAnimation";
+import { useLocation } from "react-router-dom";
 
 const ManageProducts = ({ showthissection }) => {
   const [showAddProduct, setShowAddProduct] = useState(false);
@@ -29,7 +30,7 @@ const ManageProducts = ({ showthissection }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [noDataMessage, setNoDataMessage] = useState("");
   const [loading, setLoading] = useState(false);
-
+  const location = useLocation();
   const getCategories = async () => {
     try {
       const response = await axios.get(
@@ -45,6 +46,13 @@ const ManageProducts = ({ showthissection }) => {
   useEffect(() => {
     getCategories();
   }, []);
+
+  useEffect(() => {
+    // Check if we received state from the previous page to show AddNewProduct
+    if (location.state?.showAddNewProduct) {
+      setShowAddProduct(true);
+    }
+  }, [location]);
 
   const headers = [
     "Brand Name",

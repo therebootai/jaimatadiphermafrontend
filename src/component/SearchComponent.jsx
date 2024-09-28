@@ -7,7 +7,6 @@ const SearchComponent = ({ initialQuery, setSearchQueryProp }) => {
   const [searchQuery, setSearchQuery] = useState(initialQuery || "");
 
   useEffect(() => {
-    // Update the search query when the initialQuery changes (from URL or other sources)
     setSearchQuery(initialQuery || "");
   }, [initialQuery]);
 
@@ -33,8 +32,8 @@ const SearchComponent = ({ initialQuery, setSearchQueryProp }) => {
       fetchSuggestions(query);
     } else {
       setSuggestions([]);
-      setSearchQueryProp(""); // Notify parent component to reset search
-      window.location.href = "/ourproducts"; // Clear the search query from the URL
+      setSearchQueryProp("");
+      window.location.href = "/ourproducts";
     }
   };
 

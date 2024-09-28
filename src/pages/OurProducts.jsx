@@ -62,7 +62,7 @@ const OurProducts = () => {
     } catch (error) {
       console.error("Error fetching products", error);
     } finally {
-      setLoading(false); // Set loading to false once data is fetched or if an error occurs
+      setLoading(false);
     }
   };
 
@@ -82,17 +82,15 @@ const OurProducts = () => {
   }, []);
 
   const formatMoleculeAndStrength = (moleculeName, strengthName) => {
-    // Split both moleculeName and strengthName by "+" to get individual molecules and strengths
     const molecules = moleculeName.split("+").map((mol) => mol.trim());
     const strengths = strengthName.split("+").map((str) => str.trim());
 
-    // Combine molecules with their respective strengths
     return molecules
       .map((molecule, index) => {
-        const strength = strengths[index] ? `(${strengths[index]})` : ""; // Add strength in parentheses
-        return `${molecule}${strength}`; // Return combined molecule and strength
+        const strength = strengths[index] ? `(${strengths[index]})` : "";
+        return `${molecule}${strength}`;
       })
-      .join(", "); // Join them with commas
+      .join(", ");
   };
 
   const handleCategoryClick = (categoryName) => {
@@ -250,7 +248,6 @@ const OurProducts = () => {
           )}
         </div>
 
-        {/* Pagination */}
         <div className="flex justify-center mt-4">{renderPagination()}</div>
 
         {isPopupVisible && (

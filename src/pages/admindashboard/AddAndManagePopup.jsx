@@ -3,6 +3,8 @@ import axios from "axios";
 import ManagePopup from "../../component/adminpannel/ManagePopup";
 import AdminDashboardTemplate from "../../template/AdminDashboardTemplate";
 import LogoutButton from "../../component/adminpannel/LogoutButton";
+import { useNavigate } from "react-router-dom";
+import { MdAddCircleOutline } from "react-icons/md";
 
 const AddAndManagePopup = () => {
   const [popupName, setPopupName] = useState("");
@@ -11,6 +13,7 @@ const AddAndManagePopup = () => {
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
   const [popups, setPopups] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchPopups();
@@ -57,9 +60,21 @@ const AddAndManagePopup = () => {
     }
   };
 
+  const handleAddNewClick = () => {
+    navigate("/admin/add&manageproduct", {
+      state: { showAddNewProduct: true },
+    });
+  };
+
   return (
     <AdminDashboardTemplate>
-      <div className="flex justify-end items-end w-full">
+      <div className="flex justify-end items-center gap-6 w-full">
+        <button
+          onClick={handleAddNewClick}
+          className="h-[2.5rem] px-6 text-base bg-[#2AAA8A] gap-2 flex justify-center items-center text-white rounded-md"
+        >
+          <MdAddCircleOutline /> Add New
+        </button>
         <LogoutButton />
       </div>
       <div className="p-4 flex flex-col gap-6">

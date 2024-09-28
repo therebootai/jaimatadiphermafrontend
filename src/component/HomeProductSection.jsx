@@ -11,18 +11,15 @@ const HomeProductSection = () => {
   const [selectedProduct, setSelectedProduct] = useState(null); // Track selected product for enquiry
   const [isPopupVisible, setIsPopupVisible] = useState(false);
 
-  // Handle "Order Now" click
   const handleOrderNowClick = (product) => {
-    setSelectedProduct(product); // Set the selected product
-    setIsPopupVisible(true); // Show the popup
+    setSelectedProduct(product);
+    setIsPopupVisible(true);
   };
 
-  // Close the popup
   const closePopup = () => {
-    setIsPopupVisible(false); // Hide the popup
+    setIsPopupVisible(false);
   };
 
-  // Helper function to shuffle the products array
   const shuffleArray = (array) => {
     return array.sort(() => Math.random() - 0.5);
   };
@@ -34,7 +31,6 @@ const HomeProductSection = () => {
       );
       const fetchedProducts = response.data.data;
 
-      // Shuffle the array and select 10 products randomly
       const randomProducts = shuffleArray(fetchedProducts).slice(0, 10);
 
       setProducts(randomProducts);
@@ -45,7 +41,7 @@ const HomeProductSection = () => {
 
   useEffect(() => {
     if (isPopupVisible) {
-      const firstInput = document.querySelector("#popup-input"); // Assuming you have an input with this ID
+      const firstInput = document.querySelector("#popup-input");
       if (firstInput) {
         firstInput.focus();
       }
@@ -133,6 +129,18 @@ const HomeProductSection = () => {
     nextArrow: <NextArrow />,
   };
 
+  const formatMoleculeAndStrength = (moleculeName, strengthName) => {
+    const molecules = moleculeName.split("+").map((mol) => mol.trim());
+    const strengths = strengthName.split("+").map((str) => str.trim());
+
+    return molecules
+      .map((molecule, index) => {
+        const strength = strengths[index] ? `(${strengths[index]})` : "";
+        return `${molecule}${strength}`;
+      })
+      .join(", ");
+  };
+
   return (
     <div className="xl:p-16 lg:p-8 sm:p-4 flex flex-col gap-6">
       <div className="w-full flex items-center gap-2">
@@ -162,8 +170,12 @@ const HomeProductSection = () => {
                   <div className="text-sm font-semibold h-[2.5rem]">
                     {item.brandName}
                   </div>
-                  <div>{item.moleculeName}</div>
-                  <div>Strength: {item.strengthName}</div>
+                  <div>
+                    {formatMoleculeAndStrength(
+                      item.moleculeName,
+                      item.strengthName
+                    )}
+                  </div>
                   <div>Packing: {item.packagingsizeName}</div>
                   <div>Price: {item.productPrice}/-</div>
                 </div>

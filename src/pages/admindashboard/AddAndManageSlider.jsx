@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ManageSliders from "../../component/adminpannel/ManageSlider";
-import MainPageTemplate from "../../template/MainPageTemplate";
 import AdminDashboardTemplate from "../../template/AdminDashboardTemplate";
 import LogoutButton from "../../component/adminpannel/LogoutButton";
+import { MdAddCircleOutline } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 const AddAndManageSlider = () => {
   const [sliderName, setSliderName] = useState("");
@@ -12,12 +13,12 @@ const AddAndManageSlider = () => {
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
   const [sliders, setSliders] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchSliders();
   }, []);
 
-  // Fetch sliders from the backend
   const fetchSliders = async () => {
     try {
       const response = await axios.get(
@@ -30,16 +31,14 @@ const AddAndManageSlider = () => {
     }
   };
 
-  // Handle form submission for creating a new slider
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setMessage("");
     setError("");
 
-    // Image size validation (max 2MB)
-    if (sliderImage && sliderImage.size > 2 * 1024 * 1024) {
-      setError("Image size should not exceed 2MB.");
+    if (sliderImage && sliderImage.size > 1 * 1024 * 1024) {
+      setError("Image size should not exceed 1MB.");
       setLoading(false);
       return;
     }
@@ -66,10 +65,20 @@ const AddAndManageSlider = () => {
       setLoading(false);
     }
   };
-
+  const handleAddNewClick = () => {
+    navigate("/admin/add&manageproduct", {
+      state: { showAddNewProduct: true },
+    });
+  };
   return (
     <AdminDashboardTemplate>
-      <div className="flex justify-end items-end w-full">
+      <div className="flex justify-end items-center gap-6 w-full">
+        <button
+          onClick={handleAddNewClick}
+          className="h-[2.5rem] px-6 text-base bg-[#2AAA8A] gap-2 flex justify-center items-center text-white rounded-md"
+        >
+          <MdAddCircleOutline /> Add New
+        </button>
         <LogoutButton />
       </div>
       <div className="p-4 flex flex-col gap-6">
@@ -104,7 +113,6 @@ const AddAndManageSlider = () => {
           {message && <p className="text-black">{message}</p>}
         </form>
 
-        {/* Render the ManageSliders component and pass the fetched sliders */}
         <ManageSliders sliders={sliders} fetchSliders={fetchSliders} />
       </div>
     </AdminDashboardTemplate>

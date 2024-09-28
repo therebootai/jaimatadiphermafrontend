@@ -3,6 +3,8 @@ import axios from "axios";
 import AdminDashboardTemplate from "../../template/AdminDashboardTemplate";
 import ManagePackagingSize from "../../component/adminpannel/ManagePackagingSizes";
 import LogoutButton from "../../component/adminpannel/LogoutButton";
+import { MdAddCircleOutline } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 const AddAndManagePackagingSize = () => {
   const [packagingSizeName, setPackagingSizeName] = useState("");
@@ -10,30 +12,28 @@ const AddAndManagePackagingSize = () => {
   const [message, setMessage] = useState("");
   const [packagingSizes, setPackagingSizes] = useState([]);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
-  // Fetch packaging sizes when the component loads
   useEffect(() => {
     fetchPackagingSizes();
   }, []);
 
-  // Function to fetch all packaging sizes from the server
   const fetchPackagingSizes = async () => {
     try {
       const response = await axios.get(
         `${import.meta.env.VITE_BASE_URL}/api/packagingsize/get`
       );
-      setPackagingSizes(response.data); // Set the packaging sizes data in state
+      setPackagingSizes(response.data);
     } catch (error) {
       console.error("Error fetching packaging sizes:", error);
       setError("Failed to load packaging sizes.");
     }
   };
 
-  // Function to handle form submission for adding a new packaging size
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true); // Show loading spinner or button text
-    setMessage(""); // Reset message and error before new request
+    setLoading(true);
+    setMessage("");
     setError("");
 
     try {
@@ -43,9 +43,9 @@ const AddAndManagePackagingSize = () => {
       );
 
       if (response.status === 201) {
-        setMessage(response.data.message); // Set success message
-        setPackagingSizeName(""); // Clear the form input
-        fetchPackagingSizes(); // Refresh packaging sizes list
+        setMessage(response.data.message);
+        setPackagingSizeName("");
+        fetchPackagingSizes();
       } else {
         setError(response.data.error || "Failed to create packaging size");
       }
@@ -53,13 +53,25 @@ const AddAndManagePackagingSize = () => {
       console.error("Error creating packaging size:", error);
       setError(error.response?.data?.error || "Server error");
     } finally {
-      setLoading(false); // Stop the loading spinner or button text
+      setLoading(false);
     }
+  };
+
+  const handleAddNewClick = () => {
+    navigate("/admin/add&manageproduct", {
+      state: { showAddNewProduct: true },
+    });
   };
 
   return (
     <AdminDashboardTemplate>
-      <div className="flex justify-end items-end w-full">
+      <div className="flex justify-end items-center gap-6 w-full">
+        <button
+          onClick={handleAddNewClick}
+          className="h-[2.5rem] px-6 text-base bg-[#2AAA8A] gap-2 flex justify-center items-center text-white rounded-md"
+        >
+          <MdAddCircleOutline /> Add New
+        </button>
         <LogoutButton />
       </div>
       <div className="p-4 flex flex-col gap-6">

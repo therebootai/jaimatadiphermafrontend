@@ -1,7 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import { RxCross2 } from "react-icons/rx";
 
 const PopupEnquiryBox = ({ product, closePopup }) => {
+  const [name, setName] = useState("");
+  const [mobileNumber, setMobileNumber] = useState("");
+  const [message, setMessage] = useState("");
+  const [errors, setErrors] = useState({});
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const newErrors = {};
+    if (!name) newErrors.name = "Name is required";
+    if (!mobileNumber) newErrors.mobileNumber = "Mobile number is required";
+    if (!product) newErrors.product = "Product is required";
+    setErrors(newErrors);
+
+    if (Object.keys(newErrors).length > 0) {
+      return;
+    }
+
+    const encodedMessage = encodeURIComponent(
+      `Enquiry Details:
+      \nName: ${name}
+      \nMobile: ${mobileNumber}
+      \nProduct: ${product?.brandName}
+      \nMolecule Name: ${product?.moleculeName}
+      \nStrength: ${product?.strengthName}
+      \nPacking: ${product?.packagingsizeName}
+      \nPrice: ${product?.productPrice}
+      \nMessage: ${message || "No additional message"}`
+    );
+
+    const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
+    const whatsappUrl = isDesktop
+      ? `https://web.whatsapp.com/send?phone=91&text=${encodedMessage}`
+      : `https://api.whatsapp.com/send?phone=91&text=${encodedMessage}`;
+
+    window.open(whatsappUrl, "_blank");
+  };
+
   return (
     <div className="relative flex flex-col gap-4 xl:p-8 lg:p-4 sm:p-3 w-full opacity-100 rounded-lg bg-[#0047AD] justify-center items-center">
       <div
@@ -12,7 +50,6 @@ const PopupEnquiryBox = ({ product, closePopup }) => {
         <img src="/images/klip.svg" alt="" className="h-[3rem]" />
       </div>
 
-      {/* Display product information */}
       {product && (
         <div className="bg-white sm:p-2 xlg:p-4 rounded-md shadow-md w-full">
           <h2 className="text-lg font-semibold xlg:mb-2">
@@ -26,47 +63,59 @@ const PopupEnquiryBox = ({ product, closePopup }) => {
         </div>
       )}
 
-      <form className="grid sm:grid-cols-1 md:grid-cols-2  sm:gap-2 xlg:gap-4 w-full relative mt-4">
+      <form
+        onSubmit={handleSubmit}
+        className="grid sm:grid-cols-1 md:grid-cols-2 sm:gap-2 xlg:gap-4 w-full relative mt-4"
+      >
         <div className="flex flex-col gap-2">
-          <label className="text-white" htmlFor="">
-            Your Name
-          </label>
+          <label className="text-white">Your Name</label>
           <input
             type="text"
-            className="xlg:h-[4rem] sm:h-[3.5rem] px-2 rounded-md outline-none w-full bg-white "
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="xlg:h-[4rem] sm:h-[3.5rem] px-2 rounded-md outline-none w-full bg-white"
+            required
           />
+          {errors.name && <p className="text-red-500">{errors.name}</p>}
         </div>
+
         <div className="flex flex-col gap-2">
-          <label className="text-white" htmlFor="">
-            Mobile Number
-          </label>
+          <label className="text-white">Mobile Number</label>
           <input
             type="text"
-            className="xlg:h-[4rem] sm:h-[3.5rem] px-2 rounded-md w-full bg-white "
+            value={mobileNumber}
+            onChange={(e) => setMobileNumber(e.target.value)}
+            className="xlg:h-[4rem] sm:h-[3.5rem] px-2 rounded-md w-full bg-white"
+            required
           />
+          {errors.mobileNumber && (
+            <p className="text-red-500">{errors.mobileNumber}</p>
+          )}
         </div>
+
         <div className="flex flex-col gap-2">
-          <label className="text-white" htmlFor="">
-            Select Product Name
-          </label>
+          <label className="text-white">Select Product Name</label>
           <input
             type="text"
             value={product ? product.brandName : ""}
-            className="xlg:h-[4rem] sm:h-[3.5rem] px-2 rounded-md w-full bg-white "
+            className="xlg:h-[4rem] sm:h-[3.5rem] px-2 rounded-md w-full bg-white"
             readOnly
           />
+          {errors.product && <p className="text-red-500">{errors.product}</p>}
         </div>
+
         <div className="flex flex-col gap-2">
-          <label className="text-white" htmlFor="">
-            Message
-          </label>
+          <label className="text-white">Message</label>
           <input
             type="text"
-            className="xlg:h-[4rem] sm:h-[3.5rem] px-2 rounded-md w-full bg-white "
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            className="xlg:h-[4rem] sm:h-[3.5rem] px-2 rounded-md w-full bg-white"
           />
         </div>
+
         <button
-          className=" w-full xlg:h-[4rem] sm:h-[3.5rem] lg:mt-5 bg-white flex justify-center items-center text-xl font-semibold rounded-md"
+          className="w-full xlg:h-[4rem] sm:h-[3.5rem] lg:mt-5 bg-white flex justify-center items-center text-xl font-semibold rounded-md"
           type="submit"
         >
           Enquiry Now
