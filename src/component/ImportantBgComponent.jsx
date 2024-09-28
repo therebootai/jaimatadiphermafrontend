@@ -14,15 +14,15 @@ const ImportantBgComponent = () => {
         setAutoplay(true);
       } else if (window.innerWidth <= 1024) {
         setSlidesToShow(3);
-        setAutoplay(false);
+        setAutoplay(true);
       } else if (window.innerWidth <= 1280) {
-        setSlidesToShow(3);
+        setSlidesToShow(4);
         setAutoplay(false);
       } else if (window.innerWidth <= 1780) {
-        setSlidesToShow(3);
+        setSlidesToShow(4);
         setAutoplay(false);
       } else {
-        setSlidesToShow(3);
+        setSlidesToShow(4);
         setAutoplay(false);
       }
     };
@@ -37,11 +37,11 @@ const ImportantBgComponent = () => {
   }, []);
   const settings = {
     infinite: true,
-    speed: 1000,
+    speed: 3000,
     slidesToShow: slidesToShow,
     slidesToScroll: 1,
     autoplay: autoplay,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 5000,
     pauseOnHover: false,
 
     centerMode: false,
@@ -51,11 +51,12 @@ const ImportantBgComponent = () => {
     { img: "/images/120+products.svg", text: "120+ Products" },
     { img: "/images/delivery.svg", text: "Door-step Medicine Delivery" },
     { img: "/images/available.svg", text: "120+Cities Available In India" },
+    { img: "/images/payment.svg", text: "Pay Payment Available" },
   ];
   return (
     <div className="p-4 xl:p-16 lg:p-8 ">
       <div className="bg-[url('/images/informationbg.png')] rounded-lg w-full h-full resize bg-cover bg-center flex items-center justify-center">
-        <div className="xl:p-16 lg:p-8 sm:p-6 sm:w-full xlg:w-[90%]">
+        <div className="xlg:p-16 lg:p-8 sm:p-6 sm:w-full xlg:w-full">
           <Slider {...settings}>
             {important.map((item, index) => (
               <div
@@ -65,7 +66,7 @@ const ImportantBgComponent = () => {
                 <div className="w-[80%] flex flex-col gap-4 items-center justify-center">
                   <img src={item.img} alt="" className="h-[5rem]" />
 
-                  <h1 className="xlg:text-3xl sm:text-2xl text-center font-semibold text-white">
+                  <h1 className="xl:text-3xl sm:text-2xl text-center font-semibold text-white">
                     {item.text}
                   </h1>
                 </div>

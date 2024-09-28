@@ -10,40 +10,32 @@ const EnquiryBoxComponent = () => {
       <div className="w-full flex justify-center items-center ">
         <img src="/images/klip.svg" alt="" className="h-[3rem]" />
       </div>
-      <form className="flex flex-col sm:gap-2 lg:gap-4 w-full relative ">
+      <form className="flex flex-col sm:gap-8 lg:gap-4 xlg:gap-8 xl:gap-12 w-full relative ">
         <div className="flex flex-col gap-2">
-          <label className="text-white" htmlFor="">
-            Your Name
-          </label>
           <input
             type="text"
+            placeholder=" Your Name"
             className="h-[4rem] px-2 rounded-md outline-none w-full bg-white "
           />
         </div>
         <div className="flex flex-col gap-2">
-          <label className="text-white" htmlFor="">
-            Mobile Number
-          </label>
           <input
             type="text"
+            placeholder="Mobile Number"
             className="h-[4rem] px-2 rounded-md w-full bg-white "
           />
         </div>
         <div className="flex flex-col gap-2">
-          <label className="text-white" htmlFor="">
-            Select Product Name
-          </label>
           <input
             type="text"
+            placeholder="Select Product Name"
             className="h-[4rem] px-2 rounded-md w-full bg-white "
           />
         </div>
         <div className="flex flex-col gap-2">
-          <label className="text-white" htmlFor="">
-            Message
-          </label>
           <input
             type="text"
+            placeholder="Message"
             className="h-[4rem] px-2 rounded-md w-full bg-white "
           />
         </div>

@@ -65,13 +65,13 @@ const PopupEnquiryBox = ({ product, closePopup }) => {
 
       <form
         onSubmit={handleSubmit}
-        className="grid sm:grid-cols-1 md:grid-cols-2 sm:gap-2 xlg:gap-4 w-full relative mt-4"
+        className="grid sm:grid-cols-1 md:grid-cols-2 sm:gap-4 xlg:gap-4 w-full relative mt-4"
       >
         <div className="flex flex-col gap-2">
-          <label className="text-white">Your Name</label>
           <input
             type="text"
             value={name}
+            placeholder="Your Name"
             onChange={(e) => setName(e.target.value)}
             className="xlg:h-[4rem] sm:h-[3.5rem] px-2 rounded-md outline-none w-full bg-white"
             required
@@ -80,10 +80,10 @@ const PopupEnquiryBox = ({ product, closePopup }) => {
         </div>
 
         <div className="flex flex-col gap-2">
-          <label className="text-white">Mobile Number</label>
           <input
             type="text"
             value={mobileNumber}
+            placeholder="Mobile Number"
             onChange={(e) => setMobileNumber(e.target.value)}
             className="xlg:h-[4rem] sm:h-[3.5rem] px-2 rounded-md w-full bg-white"
             required
@@ -94,9 +94,9 @@ const PopupEnquiryBox = ({ product, closePopup }) => {
         </div>
 
         <div className="flex flex-col gap-2">
-          <label className="text-white">Select Product Name</label>
           <input
             type="text"
+            placeholder="Product Name"
             value={product ? product.brandName : ""}
             className="xlg:h-[4rem] sm:h-[3.5rem] px-2 rounded-md w-full bg-white"
             readOnly
@@ -105,10 +105,10 @@ const PopupEnquiryBox = ({ product, closePopup }) => {
         </div>
 
         <div className="flex flex-col gap-2">
-          <label className="text-white">Message</label>
           <input
             type="text"
             value={message}
+            placeholder="Message"
             onChange={(e) => setMessage(e.target.value)}
             className="xlg:h-[4rem] sm:h-[3.5rem] px-2 rounded-md w-full bg-white"
           />

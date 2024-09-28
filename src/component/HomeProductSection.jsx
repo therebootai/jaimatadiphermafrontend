@@ -4,6 +4,7 @@ import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 import Slider from "react-slick";
 import PopupEnquiryBox from "./PopupEnquiryBox";
+import { Link } from "react-router-dom";
 
 const HomeProductSection = () => {
   const [products, setProducts] = useState([]);
@@ -121,7 +122,7 @@ const HomeProductSection = () => {
     slidesToShow: slidesToShow,
     slidesToScroll: 1,
     autoplay: autoplay,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 5000,
     pauseOnHover: true,
     centerMode: false,
     arrows: true,
@@ -144,21 +145,24 @@ const HomeProductSection = () => {
   return (
     <div className="xl:p-16 lg:p-8 sm:p-4 flex flex-col gap-6">
       <div className="w-full flex items-center gap-2">
-        <div className="flex  w-[85%] border-b-2 border-[#2AAA8A]">
-          <span className="h-[3rem] px-8 flex justify-center items-center bg-[#2AAA8A] text-xl font-semibold text-white rounded-t-xl">
+        <div className="flex sm:w-[60%] md:w-[75%]  lg:w-[85%] border-b-2 border-[#2AAA8A]">
+          <span className="md:h-[3rem] sm:h-[2.5rem] md:px-4 sm:px-4 lg:px-8 flex justify-center items-center bg-[#2AAA8A] md:text-base sm:text-sm lg:text-xl font-semibold text-white sm:rounded-t-md lg:rounded-t-xl">
             Our Products
           </span>
         </div>
-        <div className="w-[15%] text-[#2AAA8A] flex items-center justify-center sm:text-sm lg:text-base xl:text-xl">
+        <Link
+          to={"/ourproducts"}
+          className="lg:w-[15%] sm:w-[40%] md:w-[25%] text-[#2AAA8A] flex items-center justify-center sm:text-sm md:text-base xl:text-xl"
+        >
           <span>View all products</span>
           <MdKeyboardDoubleArrowRight />
-        </div>
+        </Link>
       </div>
       <div className="w-full">
         <Slider {...settings}>
           {products.map((item, index) => (
             <div key={index} className="p-4 !flex flex-col gap-4">
-              <div className="flex flex-col gap-2 p-4 boxshinside rounded-lg">
+              <div className="flex flex-col gap-2 p-4 boxshinside h-full rounded-lg">
                 <span>
                   <img
                     src={`${import.meta.env.VITE_BASE_URL}${item.productImage}`}
@@ -170,7 +174,7 @@ const HomeProductSection = () => {
                   <div className="text-sm font-semibold h-[2.5rem]">
                     {item.brandName}
                   </div>
-                  <div>
+                  <div className="onelinelimit">
                     {formatMoleculeAndStrength(
                       item.moleculeName,
                       item.strengthName

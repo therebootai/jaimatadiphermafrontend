@@ -36,19 +36,17 @@ const ManageProducts = ({ showthissection }) => {
       const response = await axios.get(
         `${import.meta.env.VITE_BASE_URL}/api/categories/get`
       );
-      setCategories(response.data); // Set the fetched categories in the state
+      setCategories(response.data);
     } catch (error) {
       console.error("Error fetching categories:", error);
     }
   };
 
-  // Call getCategories on component mount
   useEffect(() => {
     getCategories();
   }, []);
 
   useEffect(() => {
-    // Check if we received state from the previous page to show AddNewProduct
     if (location.state?.showAddNewProduct) {
       setShowAddProduct(true);
     }
@@ -87,8 +85,8 @@ const ManageProducts = ({ showthissection }) => {
   };
 
   const handleViewClick = (productId) => {
-    setViewProductId(productId); // Set the product ID to view
-    setShowViewProduct(true); // Open the view product panel
+    setViewProductId(productId);
+    setShowViewProduct(true);
   };
 
   const handleCloseViewProduct = () => {
@@ -250,17 +248,17 @@ const ManageProducts = ({ showthissection }) => {
       <div className="flex flex-col gap-6 relative">
         <div className="flex flex-row justify-between items-center">
           <div className="flex flex-row items-center gap-4">
-            <button className="h-[2.5rem] px-6 text-base bg-[#2AAA8A] flex justify-center items-center text-white rounded-md">
+            <button className="xlg:h-[2.5rem] sm:h-[2rem] px-6 sm:text-sm xlg:text-base bg-[#2AAA8A] flex justify-center items-center text-white rounded-md">
               Import
             </button>
-            <button className="h-[2.5rem] px-6 text-base bg-[#2AAA8A] flex justify-center items-center text-white rounded-md">
+            <button className="xlg:h-[2.5rem] sm:h-[2rem] px-6 sm:text-sm xlg:text-base bg-[#2AAA8A] flex justify-center items-center text-white rounded-md">
               Export
             </button>
             <div className="flex flex-row items-center gap-4">
               <select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)} // Update selected category
-                className="h-[2.5rem] px-2 text-base bg-white outline-none rounded-md"
+                className="xlg:h-[2.5rem] sm:h-[2rem] px-2 text-base bg-white outline-none rounded-md"
               >
                 <option value="">All Categories</option>
                 {categories.map((category) => (
@@ -276,14 +274,14 @@ const ManageProducts = ({ showthissection }) => {
               <input
                 type="text"
                 placeholder="Search by Brand or Molecule"
-                className="h-[2.5rem] w-full bg-white px-2 outline-none rounded-md"
+                className="xlg:h-[2.5rem] sm:h-[2rem] w-full sm:text-sm xlg:text-base bg-white px-2 outline-none rounded-md"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
             </div>
             <button
               onClick={handleAddNewClick}
-              className="h-[2.5rem] px-6 text-base bg-[#2AAA8A] gap-2 flex justify-center items-center text-white rounded-md"
+              className="xlg:h-[2.5rem] sm:h-[2rem] px-6 sm:text-sm xlg:text-base bg-[#2AAA8A] gap-2 flex justify-center items-center text-white rounded-md"
             >
               <MdAddCircleOutline /> Add New
             </button>
@@ -320,7 +318,7 @@ const ManageProducts = ({ showthissection }) => {
                     {products.map((product) => (
                       <div
                         key={product.productId}
-                        className="flex flex-row  px-2 py-4 gap-4 w-full border-b"
+                        className="flex flex-row xlg:text-base sm:text-xs  px-2 py-4 gap-4 w-full border-b"
                       >
                         <div className="flex-1 twolinelimit">
                           {product.brandName}

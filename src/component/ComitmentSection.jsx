@@ -8,11 +8,11 @@ const ComitmentSection = () => {
         <div className="">
           <EnquiryBoxComponent />
         </div>
-        <div className="flex flex-col lg:gap-8 sm:gap-6 xlg:gap-10 ">
-          <h1 className="lg:text-4xl sm:text-2xl md:text-3xl font-semibold text-[#0047AD]">
+        <div className="flex flex-col lg:gap-6 sm:gap-6 xl:gap-10 ">
+          <h1 className="xl:text-4xl lg:text-3xl sm:text-2xl md:text-3xl font-semibold text-[#0047AD]">
             Our Commitment To Our Society
           </h1>
-          <p className="lg:text-lg sm:text-sm md:text-base">
+          <p className="xl:text-lg lg:text-base sm:text-sm md:text-sm">
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
             ever since the 1500s, when an unknown printer took a galley of type

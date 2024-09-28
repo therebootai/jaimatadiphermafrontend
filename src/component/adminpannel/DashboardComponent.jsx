@@ -42,13 +42,13 @@ const DashboardComponent = ({ addproduct }) => {
     <div className="p-4 border-t border-[#666666]">
       <div className="grid grid-cols-4 gap-6">
         <div className="p-6 flex flex-col justify-center gap-2 items-center bg-white rounded-lg boxsh">
-          <h1 className="text-3xl text-center flex justify-center text-[#555555] items-center font-semibold w-[40%]">
+          <h1 className="xlg:text-3xl sm:text-2xl text-center flex justify-center text-[#555555] items-center font-semibold w-[40%]">
             Total Products
           </h1>
           <p className="text-2xl text-[#2AAA8A] font-bold">{totalProducts}</p>
         </div>
         <div className="p-6 flex flex-col justify-center gap-2 items-center bg-white rounded-lg boxsh">
-          <h1 className="text-3xl text-center flex justify-center text-[#555555] items-center font-semibold w-[40%]">
+          <h1 className="xlg:text-3xl sm:text-2xl text-center flex justify-center text-[#555555] items-center font-semibold w-[40%]">
             Total Categories
           </h1>
           <p className="text-2xl text-[#2AAA8A] font-bold">{totalCategories}</p>
@@ -57,7 +57,7 @@ const DashboardComponent = ({ addproduct }) => {
           onClick={addproduct}
           className="p-6 flex flex-col justify-center gap-2 items-center bg-white rounded-lg boxsh"
         >
-          <h1 className="text-3xl text-center flex justify-center text-[#555555] items-center font-semibold w-[40%]">
+          <h1 className="xlg:text-3xl sm:text-2xl text-center flex justify-center text-[#555555] items-center font-semibold w-[40%]">
             Add Products
           </h1>
           <span className="text-[#2AAA8A] text-2xl">
@@ -68,7 +68,7 @@ const DashboardComponent = ({ addproduct }) => {
           to="/admin/add&manageproduct"
           className="p-6 flex flex-col justify-center items-center gap-2 bg-white rounded-lg boxsh"
         >
-          <h1 className="text-3xl text-center flex justify-center text-[#555555] items-center font-semibold w-[40%]">
+          <h1 className="xlg:text-3xl sm:text-2xl text-center flex justify-center text-[#555555] items-center font-semibold w-[40%]">
             Manage Products
           </h1>
           <span>

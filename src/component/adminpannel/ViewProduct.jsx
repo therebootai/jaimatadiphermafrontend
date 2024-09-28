@@ -21,9 +21,9 @@ const ViewProduct = ({ productId, onClose }) => {
   if (!product) return <div>Loading...</div>;
 
   return (
-    <div className="p-8">
+    <div className="xlg:p-8 sm:p-4">
       <h2 className="text-lg font-bold mb-4">Product Details</h2>
-      <div className="grid grid-cols-1 gap-6">
+      <div className="grid grid-cols-1 sm:text-sm xlg:text-base sm:gap-4 xlg:gap-6">
         <div className="flex flex-row items-center gap-2">
           <label htmlFor="brandName">Brand Name:</label>
           <span>{product.brandName}</span>
@@ -69,13 +69,6 @@ const ViewProduct = ({ productId, onClose }) => {
           />
         </div>
       </div>
-
-      <button
-        onClick={onClose}
-        className="mt-6 bg-[#2AAA8A] text-white px-8 py-2 rounded-md hover:bg-blue-700"
-      >
-        Close
-      </button>
     </div>
   );
 };

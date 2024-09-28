@@ -126,11 +126,11 @@ const OurProducts = () => {
         <button
           key={i}
           onClick={() => handlePageChange(i)}
-          className={`px-4 py-2 mx-1 ${
+          className={`md:px-4 md:py-2 sm:px-2 sm:py-1 mx-1 md:text-base sm:text-xs ${
             currentPage === i
               ? "bg-[#2AAA8A] text-white"
               : "bg-white text-[#2AAA8A]"
-          } rounded-lg border border-[#2AAA8A]`}
+          } sm:rounded-sm md:rounded-lg border border-[#2AAA8A]`}
         >
           {i}
         </button>
@@ -142,7 +142,7 @@ const OurProducts = () => {
         <button
           onClick={() => handlePageChange(currentPage - 1)}
           disabled={currentPage === 1}
-          className="px-4 py-2 bg-white text-[#2AAA8A] border border-[#2AAA8A] rounded-lg disabled:opacity-50"
+          className="md:px-4 md:py-2 sm:px-2 sm:py-1 md:text-base sm:text-xs bg-white text-[#2AAA8A] border border-[#2AAA8A] sm:rounded-sm md:rounded-lg disabled:opacity-50"
         >
           Prev
         </button>
@@ -152,7 +152,7 @@ const OurProducts = () => {
         <button
           onClick={() => handlePageChange(currentPage + 1)}
           disabled={currentPage === totalPages}
-          className="px-4 py-2 bg-white text-[#2AAA8A] border border-[#2AAA8A] rounded-lg disabled:opacity-50"
+          className="md:px-4 md:py-2 sm:px-2 sm:py-1 md:text-base sm:text-xs bg-white text-[#2AAA8A] border border-[#2AAA8A] sm:rounded-sm md:rounded-lg disabled:opacity-50"
         >
           Next
         </button>
@@ -203,7 +203,7 @@ const OurProducts = () => {
               {products.length > 0 ? (
                 products.map((item, index) => (
                   <div key={index} className="flex flex-col gap-4">
-                    <div className="flex flex-col sm:gap-1 md:gap-2 sm:p-2 lg:p-4 h-full boxshinside rounded-lg">
+                    <div className="flex flex-col sm:gap-2 md:gap-2 sm:p-2 lg:p-4 h-full boxshinside rounded-lg">
                       <span>
                         <img
                           src={`${import.meta.env.VITE_BASE_URL}${
@@ -213,7 +213,7 @@ const OurProducts = () => {
                           className="boxshinside rounded-lg w-full lg:h-[16rem] sm:h-[12rem] xl:h-[18rem] "
                         />
                       </span>
-                      <div className="flex flex-col sm:h-[8rem] text-center md:h-fit justify-center sm:text-xs lg:text-xs font-medium text-[#666666] items-center gap-1">
+                      <div className="flex flex-col  text-center md:h-fit justify-center sm:text-xs lg:text-xs font-medium text-[#666666] items-center gap-1">
                         <div className="text-sm font-semibold">
                           {item.brandName}
                         </div>
@@ -226,10 +226,10 @@ const OurProducts = () => {
                         <div>Packing: {item.packagingsizeName}</div>
                         <div>Price: {item.productPrice}/-</div>
                       </div>
-                      <div className="flex items-end justify-center h-full gap-4">
+                      <div className="flex items-end justify-center h-full ">
                         <button
                           onClick={() => handleOrderNowClick(item)}
-                          className="h-[2rem] md:w-[70%] sm:w-full lg:w-[50%] flex rounded-lg justify-center items-center bg-gradient-to-r from-[#2AAA8A] to-[#114437] sm:text-base xlg:text-base font-semibold text-white"
+                          className="h-[2rem] md:w-[70%] sm:w-full lg:w-[50%] flex sm:rounded-md md:rounded-lg justify-center items-center bg-gradient-to-r from-[#2AAA8A] to-[#114437] sm:text-base xlg:text-base font-semibold text-white"
                         >
                           Order Now
                         </button>

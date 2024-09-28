@@ -37,11 +37,11 @@ const MissionVissionComponent = () => {
   }, []);
   const settings = {
     infinite: true,
-    speed: 1000,
+    speed: 2000,
     slidesToShow: slidesToShow,
     slidesToScroll: 1,
     autoplay: autoplay,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 3000,
     pauseOnHover: false,
 
     centerMode: false,

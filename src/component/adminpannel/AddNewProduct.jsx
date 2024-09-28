@@ -131,9 +131,9 @@ const AddNewProduct = ({ onProductAdded }) => {
   };
 
   return (
-    <div className="p-8">
+    <div className="xlg:p-8 sm:p-4">
       <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-2 sm:gap-4 xlg:gap-6">
           {/* Brand Name */}
           <div className="flex flex-col gap-2">
             <label htmlFor="brandName">Brand Name</label>

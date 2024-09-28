@@ -106,8 +106,50 @@
 
 .twolinelimit {
   display: -webkit-box;
-  -webkit-line-clamp: 2; /* Limits to 3 lines */
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.onelinelimit {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Apply this style to the element with overflow: scroll */
+.customScrollbar {
+  overflow: scroll;
+
+  max-height: 400px;
+}
+
+.customScrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.customScrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.customScrollbar::-webkit-scrollbar-thumb {
+  background: #0047ad;
+  border-radius: 10px;
+}
+
+.customScrollbar::-webkit-scrollbar-thumb:hover {
+  background: #0047ad;
+}
+
+/* For Firefox */
+.customScrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #0048ad9c #f1f1f1;
+}
+
+.customScrollbar {
+  -ms-overflow-style: -ms-autohiding-scrollbar;
 }

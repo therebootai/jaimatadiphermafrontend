@@ -76,7 +76,7 @@ const FooterComponent = () => {
               contact@yourwebsite.com
             </div>
             <div className="flex flex-row gap-2 xl:items-center">
-              <BiSolidPhoneCall className="text-[2AAA8A]" />
+              <BiSolidPhoneCall className="text-[#2AAA8A]" />
               +91 12345 67890
             </div>
             <span className="flex sm:gap-4 lg:gap-2 xl:gap-6 items-center">
@@ -96,12 +96,12 @@ const FooterComponent = () => {
         </div>
         <div className="flex sm:w-full lg:w-[20%] flex-col sm:gap-6 lg:gap-4 xl:gap-8">
           <div className="flex ">
-            <span className="xl:text-3xl lg:text-xl xlg:text-3xl sm:text-xl text-[#2AAA8A] font-semibold">
+            <span className="xl:text-3xl lg:text-xl xlg:text-3xl sm:text-2xl text-[#2AAA8A] font-semibold">
               Quick Links
             </span>
           </div>
 
-          <div className="flex flex-col sm:gap-4 xl:gap-4 sm:text-base  xlg:text-base">
+          <div className="flex flex-col sm:gap-4 xl:gap-4 sm:text-sm md:text-base xlg:text-base">
             {quicklink.map((service, index) => (
               <Link
                 to={service.link}
@@ -118,12 +118,12 @@ const FooterComponent = () => {
         </div>
         <div className="flex sm:w-full lg:w-[20%] flex-col sm:gap-6 lg:gap-4 xl:gap-8">
           <div className="flex ">
-            <span className="xl:text-3xl lg:text-xl xlg:text-3xl sm:text-xl text-[#2AAA8A] font-semibold">
+            <span className="xl:text-3xl lg:text-xl xlg:text-3xl sm:text-2xl text-[#2AAA8A] font-semibold">
               Our Products
             </span>
           </div>
 
-          <div className="flex flex-col sm:gap-4 xl:gap-4 sm:text-base  xlg:text-base">
+          <div className="flex flex-col sm:gap-4 xl:gap-4 sm:text-sm md:text-base  xlg:text-base">
             {products.map((service, index) => (
               <Link
                 to={service.link}
@@ -164,8 +164,8 @@ const FooterComponent = () => {
         <div className="flex sm:flex-col lg:flex-row sm:gap-4 lg:gap-0 text-center items-center justify-between text-[#666666]">
           <span>
             Copyright 2024
-            <Link to={"/"} className="font-bold text-[#0047AD] ml-2">
-              JM Pherma
+            <Link to={"/"} className="font-bold text-[#0047AD] ml-2 mr-2">
+              Jai Matadi Enterprise
             </Link>
             | All Rights Reserved. Privacy Policy
           </span>
