@@ -229,7 +229,7 @@ const OurProducts = () => {
                       <div className="flex items-end justify-center h-full ">
                         <button
                           onClick={() => handleOrderNowClick(item)}
-                          className="h-[2rem] md:w-[70%] sm:w-full lg:w-[50%] flex sm:rounded-md md:rounded-lg justify-center items-center bg-gradient-to-r from-[#2AAA8A] to-[#114437] sm:text-base xlg:text-base font-semibold text-white"
+                          className="h-[2rem] md:w-[70%] sm:w-full lg:w-[50%] flex sm:rounded-md md:rounded-lg justify-center items-center bg-gradient-to-r from-[#0047AD] to-[#001D47] sm:text-base xlg:text-base font-semibold text-white"
                         >
                           Order Now
                         </button>

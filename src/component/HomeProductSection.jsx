@@ -193,7 +193,7 @@ const HomeProductSection = () => {
                 </button>
                 <button
                   onClick={() => handleOrderNowClick(item)}
-                  className="h-[2.5rem] w-[50%] rounded-lg flex justify-center items-center bg-gradient-to-r from-[#2AAA8A] to-[#114437] sm:text-base xlg:text-base lg:text-base font-semibold text-white"
+                  className="h-[2.5rem] w-[50%] rounded-lg flex justify-center items-center bg-gradient-to-r from-[#FF9900] to-[#995C00] sm:text-base xlg:text-base lg:text-base font-semibold text-white"
                 >
                   Enquiry Now
                 </button>
