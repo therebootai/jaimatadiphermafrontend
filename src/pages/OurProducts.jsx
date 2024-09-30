@@ -128,8 +128,8 @@ const OurProducts = () => {
           onClick={() => handlePageChange(i)}
           className={`md:px-4 md:py-2 sm:px-2 sm:py-1 mx-1 md:text-base sm:text-xs ${
             currentPage === i
-              ? "bg-[#2AAA8A] text-white"
-              : "bg-white text-[#2AAA8A]"
+              ? "bg-[#0047AD] text-white"
+              : "bg-white text-[#0047AD]"
           } sm:rounded-sm md:rounded-lg border border-[#2AAA8A]`}
         >
           {i}
@@ -142,7 +142,7 @@ const OurProducts = () => {
         <button
           onClick={() => handlePageChange(currentPage - 1)}
           disabled={currentPage === 1}
-          className="md:px-4 md:py-2 sm:px-2 sm:py-1 md:text-base sm:text-xs bg-white text-[#2AAA8A] border border-[#2AAA8A] sm:rounded-sm md:rounded-lg disabled:opacity-50"
+          className="md:px-4 md:py-2 sm:px-2 sm:py-1 md:text-base sm:text-xs bg-white text-[#0047AD] border border-[#0047AD] sm:rounded-sm md:rounded-lg disabled:opacity-50"
         >
           Prev
         </button>
@@ -152,7 +152,7 @@ const OurProducts = () => {
         <button
           onClick={() => handlePageChange(currentPage + 1)}
           disabled={currentPage === totalPages}
-          className="md:px-4 md:py-2 sm:px-2 sm:py-1 md:text-base sm:text-xs bg-white text-[#2AAA8A] border border-[#2AAA8A] sm:rounded-sm md:rounded-lg disabled:opacity-50"
+          className="md:px-4 md:py-2 sm:px-2 sm:py-1 md:text-base sm:text-xs bg-white text-[#0047AD] border border-[#0047AD] sm:rounded-sm md:rounded-lg disabled:opacity-50"
         >
           Next
         </button>
@@ -170,8 +170,8 @@ const OurProducts = () => {
 
       <div className="xl:p-16 lg:p-8 sm:p-4 flex flex-col gap-8">
         <div className="w-full flex items-center gap-2">
-          <div className="flex w-full border-b-2 border-[#2AAA8A]">
-            <span className="h-[3rem] px-8 flex justify-center items-center bg-[#2AAA8A] text-xl font-semibold text-white rounded-t-xl">
+          <div className="flex w-full border-b-2 border-[#0047AD]">
+            <span className="h-[3rem] px-8 flex justify-center items-center bg-gradient-to-r from-[#0047AD] to-[#001D47] text-xl font-semibold text-white rounded-t-xl">
               Our Products
             </span>
           </div>
@@ -184,8 +184,8 @@ const OurProducts = () => {
               onClick={() => handleCategoryClick(category.categoryName)}
               className={`w-full rounded-md flex justify-center items-center sm:text-xs lg:text-sm h-[2rem] ${
                 selectedCategory === category.categoryName
-                  ? "bg-[#2AAA8A] text-white"
-                  : "text-[#2AAA8A] border border-[#2AAA8A]"
+                  ? "bg-[#0047AD] text-white"
+                  : "text-[#0047AD] border border-[#0047AD]"
               }`}
             >
               {category.categoryName}

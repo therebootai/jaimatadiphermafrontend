@@ -14,6 +14,9 @@ export default {
       boxShadow: {
         "custom-light": "5px 0px 8px 0px rgba(0, 0, 0, 0.05)",
       },
+      fontFamily: {
+        lexend: ["Lexend", "sans-serif"],
+      },
     },
   },
   plugins: [],

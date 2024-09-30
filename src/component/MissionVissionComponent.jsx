@@ -80,10 +80,10 @@ const MissionVissionComponent = () => {
                 <div className=" h-[3.5rem] w-[3.5rem] rounded-lg bg-[#2AAA8A1A] flex justify-center items-center">
                   <img src={item.icons} alt="" className="h-[1.6rem]" />
                 </div>
-                <h1 className="text-2xl font-semibold text-[#2AAA8A]">
+                <h1 className="xl:text-2xl lg:text-xl sm:text-lg font-semibold text-[#0047AD]">
                   {item.heading}
                 </h1>
-                <p className="text-[#666666] xm:text-sm lg:text-sm xl:text-base xlg:font-medium ">
+                <p className="text-[#666666] xm:text-sm lg:text-xs/[18px] xlg:text-sm/[22px] xl:text-sm/[24px] ">
                   {item.description}
                 </p>
               </div>

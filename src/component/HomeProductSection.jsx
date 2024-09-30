@@ -95,7 +95,7 @@ const HomeProductSection = () => {
         onClick={onClick}
         className="absolute top-1/2 sm:hidden lg:block sm:left-[-2rem] lg:left-[-1.5rem] xl:left-[-3rem] transform -translate-y-1/2 z-10  rounded-full flex justify-center items-center "
       >
-        <span className="w-5 h-5  bg-[#2AAA8A] flex justify-center items-center rounded-full">
+        <span className="w-5 h-5  bg-[#0047AD] flex justify-center items-center rounded-full">
           <BiLeftArrowAlt className="text-base text-white" />
         </span>
       </button>
@@ -109,7 +109,7 @@ const HomeProductSection = () => {
         onClick={onClick}
         className="absolute top-1/2 sm:hidden lg:block sm:right-[-2rem] xlg:right-[-2rem] lg:right-[-2rem] xl:right-[-3rem] transform -translate-y-1/2 z-10 flex justify-center items-center "
       >
-        <span className="w-5 h-5  bg-[#2AAA8A] flex justify-center items-center rounded-full">
+        <span className="w-5 h-5  bg-[#0047AD] flex justify-center items-center rounded-full">
           <BiRightArrowAlt className="text-base text-white" />
         </span>
       </button>
@@ -145,14 +145,14 @@ const HomeProductSection = () => {
   return (
     <div className="xl:p-16 lg:p-8 sm:p-4 flex flex-col gap-6">
       <div className="w-full flex items-center gap-2">
-        <div className="flex sm:w-[60%] md:w-[75%]  lg:w-[85%] border-b-2 border-[#2AAA8A]">
-          <span className="md:h-[3rem] sm:h-[2.5rem] md:px-4 sm:px-4 lg:px-8 flex justify-center items-center bg-[#2AAA8A] md:text-base sm:text-sm lg:text-xl font-semibold text-white sm:rounded-t-md lg:rounded-t-xl">
+        <div className="flex sm:w-[60%] md:w-[75%]  lg:w-[85%] border-b-2 border-[#0047AD]">
+          <span className="md:h-[3rem] sm:h-[2.5rem] md:px-4 sm:px-4 lg:px-8 flex justify-center items-center bg-gradient-to-r from-[#0047AD] to-[#001D47] md:text-base sm:text-sm lg:text-xl font-semibold text-white sm:rounded-t-md lg:rounded-t-xl">
             Our Products
           </span>
         </div>
         <Link
           to={"/ourproducts"}
-          className="lg:w-[15%] sm:w-[40%] md:w-[25%] text-[#2AAA8A] flex items-center justify-center sm:text-sm md:text-base xl:text-xl"
+          className="lg:w-[15%] sm:w-[40%] md:w-[25%] text-[#0047AD] from-[#0047AD] to-[#001D47] flex items-center justify-center sm:text-sm md:text-base xl:text-xl"
         >
           <span>View all products</span>
           <MdKeyboardDoubleArrowRight />

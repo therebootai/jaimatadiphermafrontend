@@ -15,7 +15,6 @@ const FooterComponent = () => {
       name: "/images/linkedin.svg",
       link: "",
     },
-    { name: "/images/twitter.svg", link: "" },
     { name: "/images/youtube.svg", link: "" },
   ];
   const products = [
@@ -65,19 +64,19 @@ const FooterComponent = () => {
               <h1 className="xlg:text-2xl lg:text-lg sm:text-xl font-semibold">
                 Contact Info
               </h1>
-              <div className="xl:w-[8rem] sm:w-[6rem]  h-[1px] bg-[#2AAA8A]"></div>
+              <div className="xl:w-[8rem] sm:w-[6rem]  h-[1px] bg-[#0047AD]"></div>
             </div>
             <div className="flex flex-row gap-2">
-              <FaLocationDot className="text-[#2AAA8A] mt-1" />
+              <FaLocationDot className="text-[#0047AD] mt-1" />
               Vivekananda Rd, Ward No.- 8, Khalpara, Siliguri, West Bengal
               734005
             </div>
             <div className="flex flex-row gap-2">
-              <MdEmail className="text-[#2AAA8A] mt-1" />
+              <MdEmail className="text-[#0047AD] mt-1" />
               contact@yourwebsite.com
             </div>
             <div className="flex flex-row gap-2">
-              <BiSolidPhoneCall className="text-[#2AAA8A] mt-1" />
+              <BiSolidPhoneCall className="text-[#0047AD] mt-1" />
               +91 09434072559
             </div>
             <span className="flex sm:gap-4 lg:gap-2 xl:gap-6 items-center">
@@ -97,7 +96,7 @@ const FooterComponent = () => {
         </div>
         <div className="flex sm:w-full lg:w-[20%] flex-col sm:gap-6 lg:gap-4 xl:gap-8">
           <div className="flex ">
-            <span className="xl:text-3xl lg:text-xl xlg:text-3xl sm:text-2xl text-[#2AAA8A] font-semibold">
+            <span className="xl:text-2xl lg:text-xl xlg:text-2xl sm:text-2xl text-[#0047AD] font-semibold">
               Quick Links
             </span>
           </div>
@@ -119,7 +118,7 @@ const FooterComponent = () => {
         </div>
         <div className="flex sm:w-full lg:w-[20%] flex-col sm:gap-6 lg:gap-4 xl:gap-8">
           <div className="flex ">
-            <span className="xl:text-3xl lg:text-xl xlg:text-3xl sm:text-2xl text-[#2AAA8A] font-semibold">
+            <span className="xl:text-2xl lg:text-xl xlg:text-2xl sm:text-2xl text-[#0047AD] font-semibold">
               Our Products
             </span>
           </div>
@@ -155,7 +154,7 @@ const FooterComponent = () => {
                 className="bg-transparent sm:h-[3.5rem] lg:h-[3rem] xl:h-[3.5rem] w-full px-2 border border-[#cccccc] text-[#666666] rounded-lg"
               />
             </div>
-            <button className="w-[70%] flex justify-center items-center sm:h-[3rem] lg:h-[2.5rem] xl:h-[3rem] lg:text-lg sm:text-xl xl:text-2xl font-semibold bg-[#2AAA8A] rounded-lg text-white ">
+            <button className="w-[70%] flex justify-center items-center sm:h-[3rem] lg:h-[2.5rem] xl:h-[3rem] lg:text-lg sm:text-xl xl:text-2xl font-semibold bg-[#0047AD] rounded-lg text-white ">
               Trade Enquiry
             </button>
           </div>

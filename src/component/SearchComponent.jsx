@@ -103,7 +103,7 @@ const SearchComponent = ({ initialQuery, setSearchQueryProp }) => {
 
   return (
     <div className="sm:p-4 xl:p-16 lg:p-8 relative">
-      <div className="bg-[url('/images/searchbg.png')] rounded-lg w-full h-full bg-cover bg-center flex items-center justify-center">
+      <div className="bg-[url('/images/searchbg.jpg')] rounded-lg w-full h-full bg-cover bg-center flex items-center justify-center">
         <div className="flex flex-col  w-full  rounded-lg  sm:p-4 lg:p-8 shadow-lg">
           <h1 className="md:text-lg sm:text-sm text-white font-bold ml-4 mb-6">
             Lorem ipsum dolor sit amet consectetur. Purus non.
@@ -153,14 +153,14 @@ const SearchComponent = ({ initialQuery, setSearchQueryProp }) => {
               <Link
                 to={`/ourproducts?search=${searchQuery}`}
                 onClick={handleSearchSubmit}
-                className="h-[3.5rem] sm:flex md:hidden sm:w-[20%] bg-gradient-to-r from-[#E5FFF8] to-[#BBFFEE] text-[#2AAA8A] text-sm font-semibold rounded-lg hover:bg-indigo-700 transition duration-300 flex justify-center items-center"
+                className="h-[3.5rem] sm:flex md:hidden sm:w-[20%] bg-gradient-to-r from-[#FF9900] to-[#995C00] text-[white] text-sm font-semibold rounded-lg hover:bg-indigo-700 transition duration-300 flex justify-center items-center"
               >
                 Find
               </Link>
               <Link
                 to={`/ourproducts?search=${searchQuery}`}
                 onClick={handleSearchSubmit}
-                className="h-[4rem] sm:hidden md:flex md:w-[20%] bg-gradient-to-r from-[#E5FFF8] to-[#BBFFEE] text-[#2AAA8A] text-lg font-semibold rounded-lg hover:bg-indigo-700 transition duration-300 flex justify-center items-center"
+                className="h-[4rem] sm:hidden md:flex md:w-[20%] bg-gradient-to-r from-[#FF9900] to-[#995C00] text-[white] text-lg font-semibold rounded-lg hover:bg-indigo-700 transition duration-300 flex justify-center items-center"
               >
                 Find Medicine
               </Link>

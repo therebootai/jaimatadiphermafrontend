@@ -16,13 +16,13 @@ const ImportantBgComponent = () => {
         setSlidesToShow(3);
         setAutoplay(true);
       } else if (window.innerWidth <= 1280) {
-        setSlidesToShow(4);
+        setSlidesToShow(5);
         setAutoplay(false);
       } else if (window.innerWidth <= 1780) {
-        setSlidesToShow(4);
+        setSlidesToShow(5);
         setAutoplay(false);
       } else {
-        setSlidesToShow(4);
+        setSlidesToShow(5);
         setAutoplay(false);
       }
     };
@@ -52,10 +52,11 @@ const ImportantBgComponent = () => {
     { img: "/images/delivery.svg", text: "Door-step Medicine Delivery" },
     { img: "/images/available.svg", text: "120+Cities Available In India" },
     { img: "/images/payment.svg", text: "Pay Payment Available" },
+    { img: "/images/totalproduct.svg", text: "988+ Product Delivered" },
   ];
   return (
     <div className="p-4 xl:p-16 lg:p-8 ">
-      <div className="bg-[url('/images/informationbg.png')] rounded-lg w-full h-full resize bg-cover bg-center flex items-center justify-center">
+      <div className="bg-[url('/images/informationbg.jpg')] rounded-lg w-full h-full resize bg-cover bg-center flex items-center justify-center">
         <div className="xlg:p-16 lg:p-8 sm:p-6 sm:w-full xlg:w-full">
           <Slider {...settings}>
             {important.map((item, index) => (
