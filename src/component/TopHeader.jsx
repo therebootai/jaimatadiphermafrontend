@@ -24,7 +24,7 @@ const TopHeader = () => {
             </span>
             <span>+91 9434072559</span>
           </span>
-          <span className="flex md:gap-2 sm:gap-1 items-center font-semibold md:block sm:hidden">
+          <span className="flex md:gap-2 sm:gap-1 items-center font-semibold md:flex sm:hidden">
             <span>
               <MdOutgoingMail />
             </span>
