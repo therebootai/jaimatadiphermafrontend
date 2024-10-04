@@ -9,10 +9,10 @@ const ComitmentSection = () => {
           <EnquiryBoxComponent />
         </div>
         <div className="flex flex-col lg:gap-4 sm:gap-6 xl:gap-4 lg:w-[60%] md:w-[55%] ">
-          <h1 className="xl:text-4xl lg:text-3xl sm:text-2xl md:text-3xl font-semibold text-[#0047AD]">
+          <h1 className="xl:text-4xl lg:text-2xl xlg:text-2xl sm:text-2xl md:text-2xl font-semibold text-[#0047AD]">
             Our Commitment To Our Society
           </h1>
-          <p className="xl:text-lg lg:text-base sm:text-sm md:text-sm">
+          <p className="xl:text-base lg:text-[13px]/[20px] xlg:text-sm sm:text-sm md:text-sm">
             Jai Matadi Enterprise is committed to corporate social
             responsibility (CSR) through initiatives that enhance community
             health and well-being. By supporting healthcare awareness programs,
