@@ -48,11 +48,11 @@ const ImportantBgComponent = () => {
     arrows: false,
   };
   const important = [
-    { img: "/images/120+products.svg", text: "120+ Products" },
+    { img: "/images/120+products.svg", text: "1000+ Products" },
     { img: "/images/delivery.svg", text: "Door-step Medicine Delivery" },
-    { img: "/images/available.svg", text: "120+Cities Available In India" },
-    { img: "/images/payment.svg", text: "Pay Payment Available" },
-    { img: "/images/totalproduct.svg", text: "988+ Product Delivered" },
+    { img: "/images/available.svg", text: "120+ Cities Serviceable" },
+    { img: "/images/payment.svg", text: "Online Payment" },
+    { img: "/images/totalproduct.svg", text: "Best Product pricing" },
   ];
   return (
     <div className="p-4 xl:p-16 lg:p-8 ">
@@ -67,7 +67,7 @@ const ImportantBgComponent = () => {
                 <div className="w-[80%] flex flex-col gap-4 items-center justify-center">
                   <img src={item.img} alt="" className="h-[5rem]" />
 
-                  <h1 className="xl:text-3xl xlg:text-2xl sm:text-2xl text-center font-semibold text-white">
+                  <h1 className="xl:text-2xl xlg:text-xl sm:text-2xl text-center font-semibold text-white">
                     {item.text}
                   </h1>
                 </div>

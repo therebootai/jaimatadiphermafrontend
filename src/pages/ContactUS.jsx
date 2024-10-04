@@ -20,10 +20,11 @@ const ContactUS = () => {
             Get In Touch
           </h1>
           <p className="xlg:text-lg sm:text-base text-[#666666]">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled
+            At Jai Matadi Enterprise, we value open communication and are here
+            to support all your critical medicine needs. Whether you’re a
+            healthcare provider, pharmacy, or supplier, we’re ready to assist
+            you with product inquiries, order details, or any other assistance
+            you may need.
           </p>
           <div className="flex flex-col gap-4">
             <h1 className="xlg:text-4xl lg:text-xl sm:text-2xl font-semibold text-[#0047AD]">
@@ -39,15 +40,15 @@ const ContactUS = () => {
               </div>
               <div className="flex flex-row gap-2">
                 <BiSolidPhoneCall className="text-[#0047AD] mt-1" />
-                <span>Phone: 09434072559</span>
+                <span>Phone: 9434072559</span>
               </div>
               <div className="flex flex-row gap-2">
                 <IoLogoWhatsapp className="text-[#0047AD] mt-1" />
-                <span>Whatsapp: +91 09434072559</span>
+                <span>Whatsapp: +91 9434072559</span>
               </div>
               <div className="flex flex-row gap-2">
                 <MdEmail className="text-[#0047AD] mt-1" />
-                <span>E-mail: info@jmpharma.com</span>
+                <span>E-mail: jaimatadienterpriseslg@gmail.com</span>
               </div>
             </div>
           </div>

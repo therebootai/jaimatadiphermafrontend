@@ -52,19 +52,19 @@ const MissionVissionComponent = () => {
       icons: "/images/mission.svg",
       heading: "Our Mission",
       description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "Our mission at Jai Matadi Enterprise is to empower healthcare professionals with reliable access to essential and critical medications. We are dedicated to building a supply chain that consistently delivers quality products to hospitals, clinics, and pharmacies. Through ethical practices, transparency, and a customer-focused approach, we aim to support the healthcare community’s mission of saving lives. By maintaining high standards, we ensure that patients receive timely care and contribute to the overall well-being of communities across India.",
     },
     {
       icons: "/images/vision.svg",
       heading: "Our Vision",
       description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "Jai Matadi Enterprise envisions becoming the foremost trusted partner in the critical healthcare sector, ensuring the seamless availability of life-saving medicines across India. We aspire to be known not just for our extensive product range but for the reliability and dedication we bring to healthcare providers and patients alike. Our vision is to support healthcare systems by providing consistent, high-quality access to essential drugs, fostering a healthier society where everyone has timely access to the treatments they need, whenever and wherever they need them.",
     },
     {
       icons: "/images/value.svg",
       heading: "Our Value",
       description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "At Jai Matadi Enterprise, our core values are Reliability, Integrity, and Service. We prioritize consistent reliability in every aspect of our operations, ensuring that our partners can depend on us. Our commitment to integrity drives us to uphold transparency and honesty, building trust within the healthcare sector. Service is central to our purpose, as we strive to meet and exceed the needs of healthcare providers. Together, these values shape our identity, guiding our mission to make essential medicines accessible and available to all.",
     },
   ];
   return (

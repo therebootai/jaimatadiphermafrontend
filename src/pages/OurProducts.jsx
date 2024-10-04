@@ -78,6 +78,16 @@ const OurProducts = () => {
   }, [location.search, selectedCategory, currentPage]);
 
   useEffect(() => {
+    const queryParams = new URLSearchParams(location.search);
+    const categoryFromUrl = queryParams.get("category");
+
+    if (categoryFromUrl) {
+      setSelectedCategory(categoryFromUrl);
+      getProducts(categoryFromUrl, 1);
+    }
+  }, [location.search]);
+
+  useEffect(() => {
     getCategories();
   }, []);
 

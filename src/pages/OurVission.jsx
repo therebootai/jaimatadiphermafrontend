@@ -9,12 +9,12 @@ const OurVission = () => {
     <MainPageTemplate>
       <SubBanner heading={"Our Vission"} bannerimg={"/images/subbanner.png"} />
       <div className="xl:px-16 lg:px-8 sm:px-4 pt-8 text-lg">
-        <span className="text-xl font-semibold">L</span>orem ipsum dolor sit
-        amet consectetur. Non et pellentesque et quam feugiat mi. Massa eu et
-        fames eu adipiscing pellentesque ac quam posuere. Mauris cum felis
-        pulvinar ac amet non nec. Enim donec volutpat elit rhoncus vitae
-        suscipit libero. Tincidunt nec sit vestibulum tellus est malesuada.
-        Pulvinar ac a hendrerit est ornare
+        <span className="text-xl font-semibold">J</span>ai Matadi Enterprise
+        envisions being the leading, trusted partner in critical healthcare by
+        ensuring uninterrupted access to essential medicines across India. Our
+        goal is to support healthcare providers with dependable, high-quality
+        products, contributing to a healthier society where patients receive
+        timely treatment and care, whenever and wherever needed.
       </div>
       <MissionVissionComponent />
       <ComitmentSection />

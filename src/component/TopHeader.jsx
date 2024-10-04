@@ -8,41 +8,29 @@ import { PiPhoneCallFill } from "react-icons/pi";
 import { Link } from "react-router-dom";
 
 const TopHeader = () => {
-  const socialmedia = [
-    {
-      name: "/images/facebookwhite.svg",
-      link: "",
-    },
-    { name: "/images/instagramwhite.svg", link: "" },
-    {
-      name: "/images/linkedinwhite.svg",
-      link: "",
-    },
-    { name: "/images/twitterwhite.svg", link: "" },
-    { name: "/images/youtubewhite.svg", link: "" },
-  ];
-
   return (
     <div className=" z-[60] w-full">
       <div className=" flex md:flex-row sm:flex-col  justify-between sm:gap-2 md:gap-0 items-center bg-[#0047AD]  text-white">
-        <div className="flex gap-4  md:w-[60%] lg:w-[50%] sm:w-full bg-[#0047AD] sm:rounded-br-0  md:rounded-br-[4rem] sm:h-[2rem] md:h-[2.5rem] justify-center items-center sm:text-xs lg:text-sm xlg:text-base">
+        <div className="flex gap-4  w-full bg-[#0047AD] sm:rounded-br-0  md:rounded-br-[4rem] sm:h-[2rem] md:h-[2.5rem] sm:px-4 md:px-6 sm:text-xs lg:text-sm xlg:text-base">
           <span className="flex md:gap-2 sm:gap-1 items-center sm:text-[10px] lg:text-sm xlg:text-base font-medium">
             <span>
               <PiPhoneCallFill />
             </span>
-            <span>+91 09434072559</span>
+            <span>+91 9434072559</span>
           </span>
           <span className="flex md:gap-2 sm:gap-1 items-center sm:text-[10px] lg:text-sm xlg:text-base font-semibold">
             <span>
               <IoLogoWhatsapp />
             </span>
-            <span>+91 09434072559</span>
+            <span>+91 9434072559</span>
           </span>
-          <span className="flex md:gap-2 sm:gap-1 items-center font-semibold">
+          <span className="flex md:gap-2 sm:gap-1 items-center font-semibold md:block sm:hidden">
             <span>
               <MdOutgoingMail />
             </span>
-            <Link to={"mailto:contact@jmpharma.com"}>contact@jmpharma.com</Link>
+            <Link className="" to={"mailto:jaimatadienterpriseslg@gmail.com"}>
+              jaimatadienterpriseslg@gmail.com
+            </Link>
           </span>
         </div>
       </div>

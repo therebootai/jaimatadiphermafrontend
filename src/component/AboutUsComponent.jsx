@@ -66,23 +66,22 @@ const AboutUsComponent = () => {
           </h1>
           <div className="flex flex-col gap-4 sm:text-base md:text-xs lg:text-sm xlg:text-lg xl:text-lg text-[#333333]">
             <p>
-              Lorem ipsum dolor sit amet consectetur. Non et pellentesque et
-              quam feugiat mi. Massa eu et fames eu adipiscing pellentesque ac
-              quam posuere. Mauris cum felis pulvinar ac amet non nec. Enim
-              donec volutpat elit rhoncus vitae suscipit libero. Tincidunt nec
-              sit vestibulum tellus est malesuada. Pulvinar ac a hendrerit est
-              ornare id. Pellentesque vulputate felis ultricies dolor turpis
-              ipsum blandit blandit. Pellentesque volutpat justo accumsan
-              vestibulum velit nibh tincidunt. Velit suscipit metus tincidunt
-              morbi ut. Vitae eget facilisis nec vulputate tincidunt imperdiet
-              tellus est
+              Jai Matadi Enterprise, located in Siliguri, stands as a trusted
+              name in the wholesale distribution of critical medicines. With
+              decades of experience, they have established themselves among the
+              oldest and most reputable suppliers in the region. Known for their
+              reliability, Jai Matadi Enterprise is committed to providing
+              essential and hard-to-find medications, ensuring timely
+              availability for hospitals, clinics, and pharmacies. Their
+              dedication to quality and service has earned them a solid reputa
             </p>
             <p>
-              Egestas magna mauris volutpat velit hendrerit morbi nibh lectus.
-              Posuere mi enim gravida maecenas non venenatis amet enim ipsum.
-              Sit a vulputate id dolor id. Adipiscing ut curabitur auctor rutrum
-              praesent pretium amet ac diam. Libero volutpat facilisis auctor
-              laoreet pretium tempus. Ac bibendum lobortis ultrices ut.
+              Jai Matadi Enterprise is dedicated to delivering top-quality
+              medicines at competitive prices, establishing itself as a leader
+              in the critical medicine wholesale market. They source medications
+              from reputable manufacturers, ensuring each product meets
+              stringent quality standards and complies with regulatory
+              guidelines.
             </p>
           </div>
           <div className="grid grid-cols-2 sm:gap-4 lg:gap-8 items-center  text-white">

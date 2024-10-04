@@ -69,11 +69,11 @@ const Header = () => {
             className="xl:h-[2rem] xlg:h-[2rem] lg:h-[2rem] w-full"
           />
         </Link>
-        <div className="flex justify-end lg:text-base xlg:text-lg xl:text-xl relative">
+        <div className="flex justify-end lg:text-sm xlg:text-lg xl:text-xl relative">
           {NavElement.map((navbar, index) => (
             <div
               key={index}
-              className={`font-medium lg:px-4 xlg:px-6 xl:px-8 lg:h-[5rem] xlg:h-[6rem] flex justify-center items-center hover:bg-gradient-to-b from-[#FFFFFF] to-[#EDF2F8] ${
+              className={`font-medium lg:px-2 xlg:px-3 xl:px-6 lg:h-[5rem] xlg:h-[6rem] flex justify-center items-center hover:bg-gradient-to-b from-[#FFFFFF] to-[#EDF2F8] ${
                 location.pathname === navbar.link
                   ? "text-[#0047AD] bg-gradient-to-b from-[#ffffff] to-[#d9dee2] border-b-4 border-[#0047AD]"
                   : "text-[#333333]"
@@ -88,6 +88,12 @@ const Header = () => {
             </div>
           ))}
         </div>
+        <Link
+          to={"https://api.whatsapp.com/send?phone=919434072559"}
+          className="px-6 h-[2.4rem] flex justify-center items-center bg-[#0047AD] text-white text-base font-medium hover:bg-[white] hover:text-[#0047AD] border border-[#0047AD] rounded-md"
+        >
+          Trade Enquiry
+        </Link>
       </div>
       <div className="sm:flex md:justify-between md:items-center sm:justify-between sm:items-center w-full md:p-6 sm:p-3 sm:px-3 px-0 lg:hidden">
         <Link to="/" className="lg:hidden">
@@ -124,6 +130,12 @@ const Header = () => {
               </span>
             </div>
           ))}
+          <Link
+            to={"https://api.whatsapp.com/send?phone=919434072559"}
+            className="p-4 w-full my-8 flex justify-center items-center  text-lg font-medium bg-[white] text-[#0047AD] border border-[#0047AD] rounded-md"
+          >
+            Trade Enquiry
+          </Link>
         </div>
       )}
     </header>

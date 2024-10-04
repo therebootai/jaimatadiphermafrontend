@@ -1,10 +1,14 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { BiSolidPhoneCall } from "react-icons/bi";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdEmail, MdOutlineKeyboardArrowRight } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const FooterComponent = () => {
+  const [categories, setCategories] = useState([]);
+  const navigate = useNavigate();
+  const [query, setQuery] = useState("");
   const socialmedia = [
     {
       name: "/images/facebook.svg",
@@ -17,28 +21,36 @@ const FooterComponent = () => {
     },
     { name: "/images/youtube.svg", link: "" },
   ];
-  const products = [
-    {
-      name: "Quick View Link",
-      link: "",
-    },
-    {
-      name: "Quick View Link",
-      link: "",
-    },
-    {
-      name: "Quick View Link",
-      link: "",
-    },
-    {
-      name: "Quick View Link",
-      link: "",
-    },
-    {
-      name: "Quick View Link",
-      link: "",
-    },
-  ];
+  const getCategories = async () => {
+    try {
+      const response = await axios.get(
+        `${import.meta.env.VITE_BASE_URL}/api/categories/get`
+      );
+      setCategories(response.data);
+    } catch (error) {
+      console.error("Error fetching categories:", error);
+    }
+  };
+
+  const handleCategoryClick = (categoryName) => {
+    navigate(`/ourproducts?category=${encodeURIComponent(categoryName)}`);
+  };
+  const handleWhatsAppRedirect = (e) => {
+    e.preventDefault();
+
+    const encodedMessage = encodeURIComponent(`Query: ${query}`);
+    const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
+
+    const whatsappUrl = isDesktop
+      ? `https://web.whatsapp.com/send?phone=919434072559&text=${encodedMessage}`
+      : `https://api.whatsapp.com/send?phone=919434072559&text=${encodedMessage}`;
+
+    window.open(whatsappUrl, "_blank");
+  };
+
+  useEffect(() => {
+    getCategories();
+  }, []);
   const quicklink = [
     { name: "Home", link: "/" },
     { name: "About Us", link: "/aboutus" },
@@ -73,11 +85,11 @@ const FooterComponent = () => {
             </div>
             <div className="flex flex-row gap-2">
               <MdEmail className="text-[#0047AD] mt-1" />
-              contact@yourwebsite.com
+              jaimatadienterpriseslg@gmail.com
             </div>
             <div className="flex flex-row gap-2">
               <BiSolidPhoneCall className="text-[#0047AD] mt-1" />
-              +91 09434072559
+              +91 9434072559
             </div>
             <span className="flex sm:gap-4 lg:gap-2 xl:gap-6 items-center">
               {socialmedia.map((social, index) => (
@@ -119,22 +131,22 @@ const FooterComponent = () => {
         <div className="flex sm:w-full lg:w-[20%] flex-col sm:gap-6 lg:gap-4 xl:gap-8">
           <div className="flex ">
             <span className="xl:text-2xl lg:text-xl xlg:text-2xl sm:text-2xl text-[#0047AD] font-semibold">
-              Our Products
+              Our Category
             </span>
           </div>
 
           <div className="flex flex-col sm:gap-4 xl:gap-4 sm:text-sm md:text-base  xlg:text-base">
-            {products.map((service, index) => (
-              <Link
-                to={service.link}
+            {categories.slice(0, 6).map((category, index) => (
+              <button
+                onClick={() => handleCategoryClick(category.categoryName)}
                 className="flex flex-row gap-2 font-medium items-center"
                 key={index}
               >
                 <span>
                   <MdOutlineKeyboardArrowRight />
                 </span>
-                <span>{service.name}</span>
-              </Link>
+                <span>{category.categoryName}</span>
+              </button>
             ))}
           </div>
         </div>
@@ -150,11 +162,16 @@ const FooterComponent = () => {
             <div>
               <input
                 type="text"
-                placeholder="Enter Email..."
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="Enter Your Queries..."
                 className="bg-transparent sm:h-[3.5rem] lg:h-[3rem] xl:h-[3.5rem] w-full px-2 border border-[#cccccc] text-[#666666] rounded-lg"
               />
             </div>
-            <button className="w-[70%] flex justify-center items-center sm:h-[3rem] lg:h-[2.5rem] xl:h-[3rem] lg:text-lg sm:text-xl xl:text-2xl font-semibold bg-[#0047AD] rounded-lg text-white ">
+            <button
+              onClick={handleWhatsAppRedirect}
+              className="w-[70%] flex justify-center items-center sm:h-[3rem] lg:h-[2.5rem] xl:h-[3rem] lg:text-lg sm:text-xl xl:text-2xl font-semibold bg-[#0047AD] rounded-lg text-white"
+            >
               Trade Enquiry
             </button>
           </div>

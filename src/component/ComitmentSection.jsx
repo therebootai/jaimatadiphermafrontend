@@ -13,13 +13,15 @@ const ComitmentSection = () => {
             Our Commitment To Our Society
           </h1>
           <p className="xl:text-lg lg:text-base sm:text-sm md:text-sm">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s
-            with the release of Letraset sheets containing
+            Jai Matadi Enterprise is committed to corporate social
+            responsibility (CSR) through initiatives that enhance community
+            health and well-being. By supporting healthcare awareness programs,
+            contributing essential medical supplies to underprivileged areas,
+            and organizing health camps, they strive to make healthcare
+            accessible to all. Jai Matadi Enterprise believes in giving back to
+            the community, especially focusing on preventive care and education,
+            helping create a healthier, more informed society and extending
+            their impact beyond business operations.
           </p>
           <div>
             <img src="/images/comitmentimg.jpg" alt="" className="rounded-lg" />

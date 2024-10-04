@@ -34,8 +34,8 @@ const PopupEnquiryBox = ({ product, closePopup }) => {
 
     const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
     const whatsappUrl = isDesktop
-      ? `https://web.whatsapp.com/send?phone=91&text=${encodedMessage}`
-      : `https://api.whatsapp.com/send?phone=91&text=${encodedMessage}`;
+      ? `https://web.whatsapp.com/send?phone=919434072559&text=${encodedMessage}`
+      : `https://api.whatsapp.com/send?phone=919434072559&text=${encodedMessage}`;
 
     window.open(whatsappUrl, "_blank");
   };

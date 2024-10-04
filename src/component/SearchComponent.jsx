@@ -106,7 +106,7 @@ const SearchComponent = ({ initialQuery, setSearchQueryProp }) => {
       <div className="bg-[url('/images/searchbg.jpg')] rounded-lg w-full h-full bg-cover bg-center flex items-center justify-center">
         <div className="flex flex-col  w-full  rounded-lg  sm:p-4 lg:p-8 shadow-lg">
           <h1 className="md:text-lg sm:text-sm text-white font-bold ml-4 mb-6">
-            Lorem ipsum dolor sit amet consectetur. Purus non.
+            Search using Product or molecule name
           </h1>
           <div className="relative w-full">
             <div className="flex sm:flex-row md:flex-row w-full items-center sm:gap-4 md:gap-2 lg:gap-4">
@@ -118,7 +118,7 @@ const SearchComponent = ({ initialQuery, setSearchQueryProp }) => {
                   onFocus={handleInputFocus}
                   ref={inputRef}
                   className="w-full sm:h-[3.5rem] md:h-[4rem] p-4 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0047ad]"
-                  placeholder="Write a Medicine name"
+                  placeholder="Write a Medicine or Molecule name"
                 />
 
                 {suggestions.length > 0 && (
