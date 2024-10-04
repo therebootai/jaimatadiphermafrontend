@@ -64,24 +64,24 @@ const AboutUsComponent = () => {
           <h1 className="text-[#333333] font-semibold sm:text-4xl md:text-2xl lg:text-3xl xl:text-4xl xlg:text-3xl">
             About <span className="text-[#0047AD]">Jai Matadi Enterprise</span>
           </h1>
-          <div className="flex flex-col gap-4 sm:text-base md:text-xs lg:text-sm xlg:text-lg xl:text-lg text-[#333333]">
+          <div className="flex flex-col gap-4 sm:text-base md:text-xs lg:text-sm xlg:text-lg xl:text-lg/[30px] text-[#333333]">
             <p>
-              Jai Matadi Enterprise, located in Siliguri, stands as a trusted
-              name in the wholesale distribution of critical medicines. With
-              decades of experience, they have established themselves among the
-              oldest and most reputable suppliers in the region. Known for their
-              reliability, Jai Matadi Enterprise is committed to providing
-              essential and hard-to-find medications, ensuring timely
-              availability for hospitals, clinics, and pharmacies. Their
-              dedication to quality and service has earned them a solid reputa
+              Jai Matadi Enterprise was established on 10th April, 1984 and has
+              been in the pharmaceutical distributon business for over 40 years.
+              We engage in business with a number of national and multi-national
+              pharma companies, dealing with critical care, oncology,
+              nephrology, cardiac care, skin care and general health medicine.
             </p>
+
             <p>
-              Jai Matadi Enterprise is dedicated to delivering top-quality
-              medicines at competitive prices, establishing itself as a leader
-              in the critical medicine wholesale market. They source medications
-              from reputable manufacturers, ensuring each product meets
-              stringent quality standards and complies with regulatory
-              guidelines.
+              Our supply distribution network covers the entire area of
+              Siliguri, North Bengal and Sikkim, with expansion plans for the
+              larger North-east region of India. Jai Matadi Enterprise is
+              dedicated to delivering top-quality medicines at competitive
+              prices, establishing itself as a leader in the critical medicine
+              wholesale market. We source medications from reputable
+              manufacturers, ensuring each product meets stringent quality
+              standards and complies with regulatory guidelines.
             </p>
           </div>
           <div className="grid grid-cols-2 sm:gap-4 lg:gap-8 items-center  text-white">

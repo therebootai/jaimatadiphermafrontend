@@ -32,12 +32,9 @@ const OurGallery = () => {
   const gallery = [
     "/images/about2.png",
     "/images/about3.png",
-    "/images/about2.png",
-    "/images/about3.png",
-    "/images/about2.png",
-    "/images/about3.png",
-    "/images/about2.png",
-    "/images/about3.png",
+    "/images/gallery3.jpg",
+    "/images/gallery4.jpg",
+    "/images/gallery5.jpg",
   ];
   return (
     <MainPageTemplate>
@@ -45,12 +42,12 @@ const OurGallery = () => {
       <div className="xl:p-16 sm:p-8 lg:p-8">
         <div className="grid md:grid-cols-3 sm:grid-cols-2 xlg:grid-cols-4 sm:gap-4 lg:gap-6">
           {gallery.map((item, index) => (
-            <div key={index} className=" rounded-md">
+            <div key={index} className=" rounded-md h-full">
               <img
                 src={item}
                 onClick={() => openModal(index)}
                 alt=""
-                className="rounded-md  cursor-pointer"
+                className="rounded-md  cursor-pointer h-full"
               />
             </div>
           ))}

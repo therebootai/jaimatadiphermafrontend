@@ -64,12 +64,12 @@ const Header = () => {
       <div className="lg:flex sm:hidden w-full lg:h-[5rem] xlg:h-[6rem] shadow-lg justify-between items-center  px-5">
         <Link to="/" className="sm:hidden md:block">
           <img
-            src="/images/jaimatadilogo.png"
+            src="/images/jaimatadi.png"
             alt="Jai Matadi Pherma Logo"
-            className="xl:h-[2rem] xlg:h-[2rem] lg:h-[2rem] w-full"
+            className="xl:h-[5.5rem] xlg:h-[5rem] lg:h-[4rem] w-full"
           />
         </Link>
-        <div className="flex justify-end lg:text-sm xlg:text-base xl:text-lg relative">
+        <div className="flex justify-end items-center lg:text-sm xlg:text-base xl:text-lg relative">
           {NavElement.map((navbar, index) => (
             <div
               key={index}
@@ -87,13 +87,13 @@ const Header = () => {
               </span>
             </div>
           ))}
+          <Link
+            to={"https://api.whatsapp.com/send?phone=919434072559"}
+            className="px-6 h-[2.4rem] flex justify-center items-center bg-[#0047AD] text-white text-base font-medium hover:bg-[white] hover:text-[#0047AD] border border-[#0047AD] rounded-md"
+          >
+            Trade Enquiry
+          </Link>
         </div>
-        <Link
-          to={"https://api.whatsapp.com/send?phone=919434072559"}
-          className="px-6 h-[2.4rem] flex justify-center items-center bg-[#0047AD] text-white text-base font-medium hover:bg-[white] hover:text-[#0047AD] border border-[#0047AD] rounded-md"
-        >
-          Trade Enquiry
-        </Link>
       </div>
       <div className="sm:flex md:justify-between md:items-center sm:justify-between sm:items-center w-full md:p-6 sm:p-3 sm:px-3 px-0 lg:hidden">
         <Link to="/" className="lg:hidden">
