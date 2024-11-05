@@ -91,7 +91,7 @@ const OurProducts = () => {
     getCategories();
   }, []);
 
-  const formatMoleculeAndStrength = (moleculeName, strengthName) => {
+  const formatMoleculeAndStrength = (moleculeName = "", strengthName = "") => {
     const molecules = moleculeName.split("+").map((mol) => mol.trim());
     const strengths = strengthName.split("+").map((str) => str.trim());
 
@@ -229,8 +229,8 @@ const OurProducts = () => {
                         </div>
                         <div>
                           {formatMoleculeAndStrength(
-                            item.moleculeName,
-                            item.strengthName
+                            item.moleculeName || "",
+                            item.strengthName || ""
                           )}
                         </div>
                         <div>Packing: {item.packagingsizeName}</div>

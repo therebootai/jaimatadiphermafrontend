@@ -30,7 +30,7 @@ const HomeProductSection = () => {
       const response = await axios.get(
         `${import.meta.env.VITE_BASE_URL}/api/products/get?active=true`
       );
-      const fetchedProducts = response.data.data;
+      const fetchedProducts = response.data.data || [];
 
       const randomProducts = shuffleArray(fetchedProducts).slice(0, 10);
 
@@ -130,7 +130,7 @@ const HomeProductSection = () => {
     nextArrow: <NextArrow />,
   };
 
-  const formatMoleculeAndStrength = (moleculeName, strengthName) => {
+  const formatMoleculeAndStrength = (moleculeName = "", strengthName = "") => {
     const molecules = moleculeName.split("+").map((mol) => mol.trim());
     const strengths = strengthName.split("+").map((str) => str.trim());
 
@@ -176,8 +176,8 @@ const HomeProductSection = () => {
                   </div>
                   <div className="onelinelimit">
                     {formatMoleculeAndStrength(
-                      item.moleculeName,
-                      item.strengthName
+                      item.moleculeName || "",
+                      item.strengthName || ""
                     )}
                   </div>
                   <div>Packing: {item.packagingsizeName}</div>

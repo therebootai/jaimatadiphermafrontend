@@ -21,14 +21,23 @@ const Home = () => {
         const response = await axios.get(
           `${import.meta.env.VITE_BASE_URL}/api/popups/get?active=true`
         );
+
         if (response.status === 200 && response.data.length > 0) {
-          const popup = response.data[0];
-          setPopupData(popup);
+          const activePopup = response.data.find((popup) => popup.active);
+          if (activePopup) {
+            setPopupData(activePopup);
+            setIsPopupVisible(true);
+          } else {
+            console.warn("No active popup found");
+            setIsPopupVisible(false);
+          }
         } else {
-          console.error("Failed to fetch popup data or no active popup found");
+          console.warn("No popup data found");
+          setIsPopupVisible(false);
         }
       } catch (error) {
-        console.error("Error fetching popup data:", error);
+        console.warn("Failed to fetch popup data:", error);
+        setIsPopupVisible(false);
       }
     };
 
