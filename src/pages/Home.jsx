@@ -26,28 +26,23 @@ const Home = () => {
           const activePopup = response.data.find((popup) => popup.active);
           if (activePopup) {
             setPopupData(activePopup);
-            setIsPopupVisible(true);
+
+            if (!sessionStorage.getItem("popupShown")) {
+              setIsPopupVisible(true);
+              sessionStorage.setItem("popupShown", "true");
+            }
           } else {
             console.warn("No active popup found");
-            setIsPopupVisible(false);
           }
         } else {
           console.warn("No popup data found");
-          setIsPopupVisible(false);
         }
       } catch (error) {
         console.warn("Failed to fetch popup data:", error);
-        setIsPopupVisible(false);
       }
     };
 
     fetchPopupData();
-
-    const timer = setTimeout(() => {
-      setIsPopupVisible(true);
-    }, 3000);
-
-    return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {

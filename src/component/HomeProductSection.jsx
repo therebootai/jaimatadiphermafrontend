@@ -117,7 +117,7 @@ const HomeProductSection = () => {
   };
 
   const settings = {
-    infinite: true,
+    infinite: products.length > slidesToShow,
     speed: 2000,
     slidesToShow: slidesToShow,
     slidesToScroll: 1,
