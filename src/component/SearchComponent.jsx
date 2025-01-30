@@ -62,21 +62,19 @@ const SearchComponent = ({ initialQuery, setSearchQueryProp }) => {
     }
   };
   const handleClickOutside = (event) => {
-    // Check if the clicked element is outside the input field or suggestion box
     if (
       suggestionBoxRef.current &&
       !suggestionBoxRef.current.contains(event.target) &&
       inputRef.current &&
       !inputRef.current.contains(event.target)
     ) {
-      setSuggestions([]); // Hide suggestions
+      setSuggestions([]);
     }
   };
 
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
 
-    // Cleanup the event listener when the component is unmounted
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
