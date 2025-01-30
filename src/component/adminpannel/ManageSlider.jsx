@@ -160,9 +160,7 @@ const ManageSliders = ({ sliders, fetchSliders }) => {
                     </div>
                     <div className="text-sm font-semibold w-[30%]">
                       <img
-                        src={`${import.meta.env.VITE_BASE_URL}${
-                          slider.sliderImage
-                        }`}
+                        src={slider.sliderImage.secure_url}
                         alt="Slider"
                         className="h-[5rem]"
                       />

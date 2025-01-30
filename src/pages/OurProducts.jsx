@@ -216,9 +216,7 @@ const OurProducts = () => {
                     <div className="flex flex-col sm:gap-2 md:gap-2 sm:p-2 lg:p-4 h-full boxshinside rounded-lg">
                       <span>
                         <img
-                          src={`${import.meta.env.VITE_BASE_URL}${
-                            item.productImage
-                          }`}
+                          src={item.productImage.secure_url}
                           alt={item.brandName}
                           className="boxshinside rounded-lg w-full lg:h-[16rem] sm:h-[12rem] xl:h-[18rem] "
                         />

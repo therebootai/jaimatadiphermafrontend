@@ -160,9 +160,7 @@ const ManagePopup = ({ popups, fetchPopups }) => {
                     </div>
                     <div className="text-sm font-semibold w-[30%]">
                       <img
-                        src={`${import.meta.env.VITE_BASE_URL}${
-                          popup.popupImage
-                        }`}
+                        src={popup.popupImage.secure_url}
                         alt="Popup"
                         className="h-[5rem]"
                       />

@@ -18,6 +18,7 @@ const EditProduct = ({ productId, onClose, onProductUpdated }) => {
   const [strengths, setStrengths] = useState([]);
   const [packagingSizes, setPackagingSizes] = useState([]);
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -52,7 +53,7 @@ const EditProduct = ({ productId, onClose, onProductUpdated }) => {
           productPrice: productData.productPrice,
         });
 
-        setPreviewImage(productData.productImage);
+        setPreviewImage(productData.productImage.secure_url);
       } catch (error) {
         console.error("Error fetching product or dropdown data", error);
       }
@@ -94,6 +95,7 @@ const EditProduct = ({ productId, onClose, onProductUpdated }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     if (!validateForm()) return;
 
@@ -118,6 +120,8 @@ const EditProduct = ({ productId, onClose, onProductUpdated }) => {
       onClose();
     } catch (error) {
       console.error("Error updating product", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -262,7 +266,7 @@ const EditProduct = ({ productId, onClose, onProductUpdated }) => {
             {previewImage && (
               <div className="mt-2">
                 <img
-                  src={`${import.meta.env.VITE_BASE_URL}${previewImage}`}
+                  src={previewImage}
                   alt="Product Thumbnail"
                   className="w-32 h-32 object-cover"
                 />
@@ -273,9 +277,10 @@ const EditProduct = ({ productId, onClose, onProductUpdated }) => {
 
         <button
           type="submit"
+          disabled={loading}
           className="mt-6 bg-[#2AAA8A] w-fit px-8 text-white py-2 rounded-md hover:bg-blue-700"
         >
-          Save Changes
+          {loading ? "Uploading..." : "Save Changes"}
         </button>
       </form>
     </div>

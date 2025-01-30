@@ -47,9 +47,7 @@ const Home = () => {
 
   useEffect(() => {
     if (popupData && popupData.popupImage) {
-      const imageUrl = `${import.meta.env.VITE_BASE_URL}${
-        popupData.popupImage
-      }`;
+      const imageUrl = `${popupData.popupImage.secure_url}`;
 
       const img = new Image();
       img.src = imageUrl;
@@ -86,9 +84,7 @@ const Home = () => {
               </div>
               <div className="p-4">
                 <img
-                  src={`${import.meta.env.VITE_BASE_URL}${
-                    popupData.popupImage
-                  }`}
+                  src={popupData.popupImage.secure_url}
                   alt="Popup"
                   className="rounded-lg"
                 />

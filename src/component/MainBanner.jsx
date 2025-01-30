@@ -48,7 +48,7 @@ const MainBanner = () => {
         {sliders.map((slider, index) => (
           <div key={index} className="">
             <img
-              src={`${import.meta.env.VITE_BASE_URL}${slider.sliderImage}`}
+              src={slider.sliderImage.secure_url}
               loading="lazy"
               alt="slider"
               className="h-auto w-full object-cover z-[-10]"

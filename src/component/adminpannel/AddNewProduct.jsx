@@ -16,6 +16,7 @@ const AddNewProduct = ({ onProductAdded }) => {
   const [strengths, setStrengths] = useState([]);
   const [packagingSizes, setPackagingSizes] = useState([]);
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -90,6 +91,7 @@ const AddNewProduct = ({ onProductAdded }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     if (!validateForm()) return;
     if (formData.productImage && formData.productImage.size > 512 * 1024) {
@@ -127,6 +129,8 @@ const AddNewProduct = ({ onProductAdded }) => {
       });
     } catch (error) {
       console.error("Error creating product", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -271,9 +275,10 @@ const AddNewProduct = ({ onProductAdded }) => {
 
         <button
           type="submit"
+          disabled={loading}
           className="mt-6 bg-[#2AAA8A] w-fit px-8 text-white py-2 rounded-md hover:bg-blue-700"
         >
-          Submit
+          {loading ? "Uploading..." : "Submit"}
         </button>
       </form>
     </div>

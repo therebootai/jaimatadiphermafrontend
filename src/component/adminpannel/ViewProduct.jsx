@@ -63,7 +63,7 @@ const ViewProduct = ({ productId, onClose }) => {
         <div className="flex flex-col gap-2">
           <label htmlFor="productImage">Thumbnail Image:</label>
           <img
-            src={`${import.meta.env.VITE_BASE_URL}${product.productImage}`}
+            src={product.productImage.secure_url}
             alt="Product Thumbnail"
             className="w-32 h-32 object-cover"
           />

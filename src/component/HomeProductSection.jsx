@@ -165,7 +165,7 @@ const HomeProductSection = () => {
               <div className="flex flex-col gap-2 p-4 boxshinside h-full rounded-lg">
                 <span>
                   <img
-                    src={`${import.meta.env.VITE_BASE_URL}${item.productImage}`}
+                    src={item.productImage.secure_url}
                     alt={item.brandName}
                     className="boxshinside rounded-lg w-full h-[18rem]"
                   />
